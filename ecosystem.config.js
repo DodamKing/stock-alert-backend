@@ -15,7 +15,7 @@ module.exports = {
         script: 'uvicorn',
         args: 'app:app --host 0.0.0.0 --port 8000',
         cwd: './api/',
-        interpreter: './venv/bin/python',
+        interpreter: '/home/ubuntu/project/stock-alert-backend/api/venv/bin/python',
         autorestart: true
       }
     ]
