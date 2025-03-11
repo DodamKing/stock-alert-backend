@@ -1,0 +1,4811 @@
+{
+  "market": "KOSPI",
+  "stocks": [
+    {
+      "symbol": "005930",
+      "name": "삼성전자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000660",
+      "name": "SK하이닉스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "373220",
+      "name": "LG에너지솔루션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "207940",
+      "name": "삼성바이오로직스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005380",
+      "name": "현대차",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "068270",
+      "name": "셀트리온",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000270",
+      "name": "기아",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005935",
+      "name": "삼성전자우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "035420",
+      "name": "NAVER",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012450",
+      "name": "한화에어로스페이스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "105560",
+      "name": "KB금융",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "329180",
+      "name": "HD현대중공업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005490",
+      "name": "POSCO홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "042660",
+      "name": "한화오션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012330",
+      "name": "현대모비스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "055550",
+      "name": "신한지주",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "138040",
+      "name": "메리츠금융지주",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "096770",
+      "name": "SK이노베이션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "028260",
+      "name": "삼성물산",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "035720",
+      "name": "카카오",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011200",
+      "name": "HMM",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000810",
+      "name": "삼성화재",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010130",
+      "name": "고려아연",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "086790",
+      "name": "하나금융지주",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "051910",
+      "name": "LG화학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "259960",
+      "name": "크래프톤",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "032830",
+      "name": "삼성생명",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "034020",
+      "name": "두산에너빌리티",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009540",
+      "name": "HD한국조선해양",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006400",
+      "name": "삼성SDI",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "015760",
+      "name": "한국전력",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "066570",
+      "name": "LG전자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010140",
+      "name": "삼성중공업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "024110",
+      "name": "기업은행",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "030200",
+      "name": "KT",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "316140",
+      "name": "우리금융지주",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "017670",
+      "name": "SK텔레콤",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "267260",
+      "name": "HD현대일렉트릭",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "033780",
+      "name": "KT&G",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "402340",
+      "name": "SK스퀘어",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003670",
+      "name": "포스코퓨처엠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003550",
+      "name": "LG",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "323410",
+      "name": "카카오뱅크",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "047050",
+      "name": "포스코인터내셔널",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009150",
+      "name": "삼성전기",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "064350",
+      "name": "현대로템",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "034730",
+      "name": "SK",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "352820",
+      "name": "하이브",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000100",
+      "name": "유한양행",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "086280",
+      "name": "현대글로비스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "018260",
+      "name": "삼성에스디에스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003490",
+      "name": "대한항공",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "042700",
+      "name": "한미반도체",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "326030",
+      "name": "SK바이오팜",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "047810",
+      "name": "한국항공우주",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "272210",
+      "name": "한화시스템",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010950",
+      "name": "S-Oil",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "079550",
+      "name": "LIG넥스원",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005830",
+      "name": "DB손해보험",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003230",
+      "name": "삼양식품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "090430",
+      "name": "아모레퍼시픽",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "443060",
+      "name": "HD현대마린솔루션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010120",
+      "name": "LS ELECTRIC",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "267250",
+      "name": "HD현대",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "021240",
+      "name": "코웨이",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "180640",
+      "name": "한진칼",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006800",
+      "name": "미래에셋증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "088980",
+      "name": "맥쿼리인프라",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000150",
+      "name": "두산",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005387",
+      "name": "현대차2우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "450080",
+      "name": "에코프로머티",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "051900",
+      "name": "LG생활건강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "241560",
+      "name": "두산밥캣",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "029780",
+      "name": "삼성카드",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "064400",
+      "name": "LG씨엔에스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "161390",
+      "name": "한국타이어앤테크놀로지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011790",
+      "name": "SKC",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005940",
+      "name": "NH투자증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "034220",
+      "name": "LG디스플레이",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "032640",
+      "name": "LG유플러스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "271560",
+      "name": "오리온",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "377300",
+      "name": "카카오페이",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "071050",
+      "name": "한국금융지주",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "454910",
+      "name": "두산로보틱스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010620",
+      "name": "HD현대미포",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011070",
+      "name": "LG이노텍",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "022100",
+      "name": "포스코DX",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "016360",
+      "name": "삼성증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "298040",
+      "name": "효성중공업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "097950",
+      "name": "CJ제일제당",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000880",
+      "name": "한화",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004020",
+      "name": "현대제철",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000720",
+      "name": "현대건설",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "035250",
+      "name": "강원랜드",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "028050",
+      "name": "삼성E&A",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "307950",
+      "name": "현대오토에버",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "036570",
+      "name": "엔씨소프트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005385",
+      "name": "현대차우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009830",
+      "name": "한화솔루션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "251270",
+      "name": "넷마블",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "036460",
+      "name": "한국가스공사",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "078930",
+      "name": "GS",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "138930",
+      "name": "BNK금융지주",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006260",
+      "name": "LS",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "175330",
+      "name": "JB금융지주",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "302440",
+      "name": "SK바이오사이언스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011170",
+      "name": "롯데케미칼",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "462870",
+      "name": "시프트업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011780",
+      "name": "금호석유",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001040",
+      "name": "CJ",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "128940",
+      "name": "한미약품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "039490",
+      "name": "키움증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "018880",
+      "name": "한온시스템",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "383220",
+      "name": "F&F",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "066970",
+      "name": "엘앤에프",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "026960",
+      "name": "동서",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002380",
+      "name": "KCC",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "489790",
+      "name": "한화비전",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "278470",
+      "name": "에이피알",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004990",
+      "name": "롯데지주",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "052690",
+      "name": "한전기술",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004370",
+      "name": "농심",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007660",
+      "name": "이수페타시스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "139480",
+      "name": "이마트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012750",
+      "name": "에스원",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "081660",
+      "name": "휠라홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "088350",
+      "name": "한화생명",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "018670",
+      "name": "SK가스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "020560",
+      "name": "아시아나항공",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001440",
+      "name": "대한전선",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000120",
+      "name": "CJ대한통운",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "028670",
+      "name": "팬오션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "111770",
+      "name": "영원무역",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "017800",
+      "name": "현대엘리베이",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "082740",
+      "name": "한화엔진",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012510",
+      "name": "더존비즈온",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "030000",
+      "name": "제일기획",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001450",
+      "name": "현대해상",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "192820",
+      "name": "코스맥스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000990",
+      "name": "DB하이텍",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "204320",
+      "name": "HL만도",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "023530",
+      "name": "롯데쇼핑",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "042670",
+      "name": "HD현대인프라코어",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "361610",
+      "name": "SK아이이테크놀로지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008930",
+      "name": "한미사이언스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "062040",
+      "name": "산일전기",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "051600",
+      "name": "한전KPS",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "103140",
+      "name": "풍산",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "282330",
+      "name": "BGF리테일",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009420",
+      "name": "한올바이오파마",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "375500",
+      "name": "DL이앤씨",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002790",
+      "name": "아모레G",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007310",
+      "name": "오뚜기",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005070",
+      "name": "코스모신소재",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003690",
+      "name": "코리안리",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004170",
+      "name": "신세계",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006360",
+      "name": "GS건설",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "457190",
+      "name": "이수스페셜티케미컬",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008770",
+      "name": "호텔신라",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000240",
+      "name": "한국앤컴퍼니",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "112610",
+      "name": "씨에스윈드",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010060",
+      "name": "OCI홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "139130",
+      "name": "DGB금융지주",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005850",
+      "name": "에스엘",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006280",
+      "name": "녹십자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "161890",
+      "name": "한국콜마",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "047040",
+      "name": "대우건설",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "267270",
+      "name": "HD현대건설기계",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014680",
+      "name": "한솔케미칼",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "073240",
+      "name": "금호타이어",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006040",
+      "name": "동원산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "069620",
+      "name": "대웅제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "294870",
+      "name": "HDC현대산업개발",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "395400",
+      "name": "SK리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "069960",
+      "name": "현대백화점",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000080",
+      "name": "하이트진로",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001720",
+      "name": "신영증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "103590",
+      "name": "일진전기",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007070",
+      "name": "GS리테일",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007340",
+      "name": "DN오토모티브",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "020150",
+      "name": "롯데에너지머티리얼즈",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "137310",
+      "name": "에스디바이오센서",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009970",
+      "name": "영원무역홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011210",
+      "name": "현대위아",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003570",
+      "name": "SNT다이내믹스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009450",
+      "name": "경동나비엔",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "300720",
+      "name": "한일시멘트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003090",
+      "name": "대웅",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003030",
+      "name": "세아제강지주",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "280360",
+      "name": "롯데웰푸드",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "185750",
+      "name": "종근당",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004000",
+      "name": "롯데정밀화학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "229640",
+      "name": "LS에코에너지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "089860",
+      "name": "롯데렌탈",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009240",
+      "name": "한샘",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "336260",
+      "name": "두산퓨얼셀",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "365550",
+      "name": "ESR켄달스퀘어리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "298020",
+      "name": "효성티앤씨",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014820",
+      "name": "동원시스템즈",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "034230",
+      "name": "파라다이스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001120",
+      "name": "LX인터내셔널",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005300",
+      "name": "롯데칠성",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "330590",
+      "name": "롯데리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "192080",
+      "name": "더블유게임즈",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "071970",
+      "name": "HD현대마린엔진",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "023590",
+      "name": "다우기술",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004490",
+      "name": "세방전지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001740",
+      "name": "SK네트웍스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "108320",
+      "name": "LX세미콘",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001800",
+      "name": "오리온홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000815",
+      "name": "삼성화재우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005180",
+      "name": "빙그레",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000670",
+      "name": "영풍",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "100090",
+      "name": "SK오션플랜트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "039130",
+      "name": "하나투어",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "120110",
+      "name": "코오롱인더",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001530",
+      "name": "DI동일",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "415640",
+      "name": "KB발해인프라",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "051915",
+      "name": "LG화학우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003240",
+      "name": "태광산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012630",
+      "name": "HDC",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003540",
+      "name": "대신증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001680",
+      "name": "대상",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "248070",
+      "name": "솔루엠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002840",
+      "name": "미원상사",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "079900",
+      "name": "전진건설로봇",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003850",
+      "name": "보령",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005440",
+      "name": "현대지에프홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "298050",
+      "name": "HS효성첨단소재",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "353200",
+      "name": "대덕전자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "079160",
+      "name": "CJ CGV",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000500",
+      "name": "가온전선",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001570",
+      "name": "금양",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "082640",
+      "name": "동양생명",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "950210",
+      "name": "프레스티지바이오파마",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "017960",
+      "name": "한국카본",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004800",
+      "name": "효성",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "085620",
+      "name": "미래에셋생명",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "192400",
+      "name": "쿠쿠홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "484870",
+      "name": "엠앤씨솔루션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "030610",
+      "name": "교보증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003620",
+      "name": "KG모빌리티",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "030190",
+      "name": "NICE평가정보",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009410",
+      "name": "태영건설",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000210",
+      "name": "DL",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002710",
+      "name": "TCC스틸",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "268280",
+      "name": "미원에스씨",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "214320",
+      "name": "이노션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001430",
+      "name": "세아베스틸지주",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003530",
+      "name": "한화투자증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "285130",
+      "name": "SK케미칼",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "293940",
+      "name": "신한알파리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006120",
+      "name": "SK디스커버리",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "097230",
+      "name": "HJ중공업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005420",
+      "name": "코스모화학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "100840",
+      "name": "SNT에너지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "025540",
+      "name": "한국단자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "114090",
+      "name": "GKL",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "281820",
+      "name": "케이씨텍",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "016380",
+      "name": "KG스틸",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "145720",
+      "name": "덴티움",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005690",
+      "name": "파미셀",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "066575",
+      "name": "LG전자우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "451800",
+      "name": "한화리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "017810",
+      "name": "풀무원",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "069260",
+      "name": "TKG휴켐스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "064960",
+      "name": "SNT모티브",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "336370",
+      "name": "솔루스첨단소재",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008730",
+      "name": "율촌화학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005250",
+      "name": "녹십자홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000640",
+      "name": "동아쏘시오홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006650",
+      "name": "대한유화",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "181710",
+      "name": "NHN",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "049770",
+      "name": "동원F&B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006380",
+      "name": "카프로",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "057050",
+      "name": "현대홈쇼핑",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "381970",
+      "name": "케이카",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "032350",
+      "name": "롯데관광개발",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000155",
+      "name": "두산우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "077970",
+      "name": "STX엔진",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "00680K",
+      "name": "미래에셋증권2우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "071320",
+      "name": "지역난방공사",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "089590",
+      "name": "제주항공",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005880",
+      "name": "대한해운",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000400",
+      "name": "롯데손해보험",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002030",
+      "name": "아세아",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "178920",
+      "name": "PI첨단소재",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "306200",
+      "name": "세아제강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003470",
+      "name": "유안타증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014830",
+      "name": "유니드",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "271940",
+      "name": "일진하이솔루스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "091810",
+      "name": "티웨이항공",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "456040",
+      "name": "OCI",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002350",
+      "name": "넥센타이어",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "348950",
+      "name": "제이알글로벌리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000070",
+      "name": "삼양홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "272450",
+      "name": "진에어",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "090460",
+      "name": "비에이치",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "241590",
+      "name": "화승엔터프라이즈",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007700",
+      "name": "F&F홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010780",
+      "name": "아이에스동서",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001060",
+      "name": "JW중외제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "344820",
+      "name": "KCC글라스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "036530",
+      "name": "SNT홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "383800",
+      "name": "LX홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "016800",
+      "name": "퍼시스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "105630",
+      "name": "한세실업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "475150",
+      "name": "SK이터닉스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "377740",
+      "name": "바이오노트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002240",
+      "name": "고려제강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "192650",
+      "name": "드림텍",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "093370",
+      "name": "후성",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003920",
+      "name": "남양유업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "284740",
+      "name": "쿠쿠홈시스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "403550",
+      "name": "쏘카",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "460860",
+      "name": "동국제강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "195870",
+      "name": "해성디에스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000370",
+      "name": "한화손해보험",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "145990",
+      "name": "삼양사",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "017860",
+      "name": "DS단석",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005610",
+      "name": "SPC삼립",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009900",
+      "name": "명신산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "453340",
+      "name": "현대그린푸드",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "092790",
+      "name": "넥스틸",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "093050",
+      "name": "LF",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "075580",
+      "name": "세진중공업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "097520",
+      "name": "엠씨넥스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "019170",
+      "name": "신풍제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "357120",
+      "name": "코람코라이프인프라리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "034310",
+      "name": "NICE",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003300",
+      "name": "한일홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006110",
+      "name": "삼아알미늄",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "170900",
+      "name": "동아에스티",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "448730",
+      "name": "삼성FN리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "475560",
+      "name": "더본코리아",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003545",
+      "name": "대신증권우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003280",
+      "name": "흥아해운",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "017940",
+      "name": "E1",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005810",
+      "name": "풍산홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "084690",
+      "name": "대상홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002960",
+      "name": "한국쉘석유",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "013890",
+      "name": "지누스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "00088K",
+      "name": "한화3우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "034120",
+      "name": "SBS",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "094800",
+      "name": "맵스리얼티1",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "183190",
+      "name": "아세아시멘트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003960",
+      "name": "사조대림",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "029530",
+      "name": "신도리코",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "499790",
+      "name": "GS피앤엘",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "058650",
+      "name": "세아홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "432320",
+      "name": "KB스타리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "018250",
+      "name": "애경산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "126560",
+      "name": "현대퓨처넷",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "031430",
+      "name": "신세계인터내셔날",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004690",
+      "name": "삼천리",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "090435",
+      "name": "아모레퍼시픽우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003520",
+      "name": "영진약품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "084010",
+      "name": "대한제강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "00104K",
+      "name": "CJ4우(전환)",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "020000",
+      "name": "한섬",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "161000",
+      "name": "애경케미칼",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "093230",
+      "name": "이아이디",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005010",
+      "name": "휴스틸",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004700",
+      "name": "조광피혁",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "130660",
+      "name": "한전산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005389",
+      "name": "현대차3우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "060980",
+      "name": "HL홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "200880",
+      "name": "서연이화",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011760",
+      "name": "현대코퍼레이션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005090",
+      "name": "SGC에너지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003160",
+      "name": "디아이",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "037270",
+      "name": "YG PLUS",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "027410",
+      "name": "BGF",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003000",
+      "name": "부광약품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "035150",
+      "name": "백산",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "025860",
+      "name": "남해화학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "071055",
+      "name": "한국금융지주우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003220",
+      "name": "대원제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000680",
+      "name": "LS네트웍스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "123890",
+      "name": "한국자산신탁",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "033270",
+      "name": "유나이티드제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "249420",
+      "name": "일동제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005390",
+      "name": "신성통상",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002310",
+      "name": "아세아제지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000490",
+      "name": "대동",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "072710",
+      "name": "농심홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001340",
+      "name": "백광산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "286940",
+      "name": "롯데이노베이트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009290",
+      "name": "광동제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "026890",
+      "name": "스틱인베스트먼트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "104700",
+      "name": "한국철강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "015360",
+      "name": "예스코홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002320",
+      "name": "한진",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006390",
+      "name": "한일현대시멘트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "900140",
+      "name": "엘브이엠씨홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "126720",
+      "name": "수산인더스트리",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "339770",
+      "name": "교촌에프앤비",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "033240",
+      "name": "자화전자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "322000",
+      "name": "HD현대에너지솔루션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004430",
+      "name": "송원산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "377190",
+      "name": "디앤디플랫폼리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006060",
+      "name": "화승인더",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001820",
+      "name": "삼화콘덴서",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007690",
+      "name": "국도화학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001270",
+      "name": "부국증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001940",
+      "name": "KISCO홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011500",
+      "name": "한농화성",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "108670",
+      "name": "LX하우시스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "088260",
+      "name": "이리츠코크렙",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "058430",
+      "name": "포스코스틸리온",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001390",
+      "name": "KG케미칼",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007810",
+      "name": "코리아써키트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "051905",
+      "name": "LG생활건강우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "122900",
+      "name": "아이마켓코리아",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009680",
+      "name": "모토닉",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000520",
+      "name": "삼일제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010690",
+      "name": "화신",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "298690",
+      "name": "에어부산",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012030",
+      "name": "DB",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "034830",
+      "name": "한국토지신탁",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "016610",
+      "name": "DB금융투자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000480",
+      "name": "CR홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001200",
+      "name": "유진투자증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "016590",
+      "name": "신대양제지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011930",
+      "name": "신성이엔지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005500",
+      "name": "삼진제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005945",
+      "name": "NH투자증권우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "017390",
+      "name": "서울가스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006220",
+      "name": "제주은행",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009160",
+      "name": "SIMPAC",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "226320",
+      "name": "잇츠한불",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005720",
+      "name": "넥센",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002810",
+      "name": "삼영무역",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001230",
+      "name": "동국홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001790",
+      "name": "대한제당",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "029460",
+      "name": "케이씨",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008060",
+      "name": "대덕",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002020",
+      "name": "코오롱",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "037710",
+      "name": "광주신세계",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "024720",
+      "name": "콜마홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "452260",
+      "name": "한화갤러리아",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "092230",
+      "name": "KPX홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004380",
+      "name": "삼익THK",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "194370",
+      "name": "제이에스코퍼레이션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004360",
+      "name": "세방",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000430",
+      "name": "대원강업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "039570",
+      "name": "HDC랩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002900",
+      "name": "TYM",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009470",
+      "name": "삼화전기",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "138490",
+      "name": "코오롱ENP",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007460",
+      "name": "에이프로젠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "334890",
+      "name": "이지스밸류리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "096760",
+      "name": "JW홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002150",
+      "name": "도화엔지니어링",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001510",
+      "name": "SK증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006405",
+      "name": "삼성SDI우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006340",
+      "name": "대원전선",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "117580",
+      "name": "대성에너지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001250",
+      "name": "GS글로벌",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "272550",
+      "name": "삼양패키징",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001630",
+      "name": "종근당홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001130",
+      "name": "대한제분",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "102460",
+      "name": "이연제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "109070",
+      "name": "주성코퍼레이션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "025000",
+      "name": "KPX케미칼",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "016580",
+      "name": "환인제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003350",
+      "name": "한국화장품제조",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "213500",
+      "name": "한솔제지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001780",
+      "name": "알루코",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000540",
+      "name": "흥국화재",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "053210",
+      "name": "스카이라이프",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "460850",
+      "name": "동국씨엠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007570",
+      "name": "일양약품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "018470",
+      "name": "조일알미늄",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "044450",
+      "name": "KSS해운",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003120",
+      "name": "일성아이에스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005680",
+      "name": "삼영전자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000140",
+      "name": "하이트진로홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "417310",
+      "name": "코람코더원리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004560",
+      "name": "현대비앤지스틸",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "214420",
+      "name": "토니모리",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001500",
+      "name": "현대차증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003580",
+      "name": "HLB글로벌",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "035510",
+      "name": "신세계 I&C",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "084680",
+      "name": "이월드",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "070960",
+      "name": "모나용평",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "102260",
+      "name": "동성케미컬",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "030210",
+      "name": "다올투자증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000320",
+      "name": "노루홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "033920",
+      "name": "무학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "013360",
+      "name": "일성건설",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "078520",
+      "name": "에이블씨엔씨",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "101530",
+      "name": "해태제과식품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "053690",
+      "name": "한미글로벌",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "293480",
+      "name": "하나제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010820",
+      "name": "퍼스텍",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "028100",
+      "name": "동아지질",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004980",
+      "name": "성신양회",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "071840",
+      "name": "롯데하이마트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "037560",
+      "name": "LG헬로비전",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003200",
+      "name": "일신방직",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "019680",
+      "name": "대교",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000050",
+      "name": "경방",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "015860",
+      "name": "일진홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "095720",
+      "name": "웅진씽크빅",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002100",
+      "name": "경농",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008350",
+      "name": "남선알미늄",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009580",
+      "name": "무림P&P",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008490",
+      "name": "서흥",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "095570",
+      "name": "AJ네트웍스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "092200",
+      "name": "디아이씨",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "097955",
+      "name": "CJ제일제당 우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009155",
+      "name": "삼성전기우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000020",
+      "name": "동화약품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003555",
+      "name": "LG우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "404990",
+      "name": "신한서부티엔디리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007160",
+      "name": "사조산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "134380",
+      "name": "미원화학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000390",
+      "name": "삼화페인트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "462520",
+      "name": "조선내화",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "107590",
+      "name": "미원홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "100250",
+      "name": "진양홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001460",
+      "name": "BYC",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007860",
+      "name": "서연",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002630",
+      "name": "오리엔트바이오",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003070",
+      "name": "코오롱글로벌",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006490",
+      "name": "인스코비",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011000",
+      "name": "진원생명과학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "234080",
+      "name": "JW생명과학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "036420",
+      "name": "콘텐트리중앙",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "081000",
+      "name": "일진다이아",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004090",
+      "name": "한국석유",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "139990",
+      "name": "아주스틸",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000300",
+      "name": "DH오토넥스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "450140",
+      "name": "코오롱모빌리티그룹",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005430",
+      "name": "한국공항",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "016450",
+      "name": "한세예스24홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011785",
+      "name": "금호석유우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000860",
+      "name": "강남제비스코",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008110",
+      "name": "대동전자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "271980",
+      "name": "제일약품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003650",
+      "name": "미창석유",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "105840",
+      "name": "우진",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "092220",
+      "name": "KEC",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "400760",
+      "name": "NH올원리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001750",
+      "name": "한양증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "025820",
+      "name": "이구산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003547",
+      "name": "대신증권2우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "210980",
+      "name": "SK디앤디",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014160",
+      "name": "대영포장",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "015230",
+      "name": "대창단조",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003610",
+      "name": "방림",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002390",
+      "name": "한독",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "027970",
+      "name": "한국제지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "350520",
+      "name": "이지스레지던스리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010955",
+      "name": "S-Oil우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006660",
+      "name": "삼성공조",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "083420",
+      "name": "그린케미칼",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "079430",
+      "name": "현대리바트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "090350",
+      "name": "노루페인트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012320",
+      "name": "경동인베스트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007110",
+      "name": "일신석재",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "128820",
+      "name": "대성산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007210",
+      "name": "벽산",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001360",
+      "name": "삼성제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008970",
+      "name": "동양철관",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011280",
+      "name": "태림포장",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "214390",
+      "name": "경보제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001520",
+      "name": "동양",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003830",
+      "name": "대한화섬",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "298000",
+      "name": "효성화학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "068290",
+      "name": "삼성출판사",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004250",
+      "name": "NPC",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008040",
+      "name": "사조동아원",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003060",
+      "name": "에이프로젠바이오로직스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000700",
+      "name": "유수홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000970",
+      "name": "한국주철관",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005950",
+      "name": "이수화학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002170",
+      "name": "삼양통상",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003720",
+      "name": "삼영",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "210540",
+      "name": "디와이파워",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "015890",
+      "name": "태경산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006840",
+      "name": "AK홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "136490",
+      "name": "선진",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004080",
+      "name": "신흥",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001045",
+      "name": "CJ우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004970",
+      "name": "신라교역",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "094280",
+      "name": "효성ITX",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010100",
+      "name": "한국무브넥스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006890",
+      "name": "태경케미컬",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009270",
+      "name": "신원",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "020120",
+      "name": "키다리스튜디오",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001380",
+      "name": "SG글로벌",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010580",
+      "name": "에스엠벡셀",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "077500",
+      "name": "유니퀘스트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003460",
+      "name": "유화증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "024090",
+      "name": "디씨엠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "02826K",
+      "name": "삼성물산우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004710",
+      "name": "한솔테크닉스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "214330",
+      "name": "금호에이치티",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "033180",
+      "name": "KH 필룩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "00279K",
+      "name": "아모레G3우(전환)",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "120030",
+      "name": "조선선재",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012800",
+      "name": "대창",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011810",
+      "name": "STX",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000105",
+      "name": "유한양행우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "317400",
+      "name": "자이에스앤디",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011330",
+      "name": "유니켐",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "017550",
+      "name": "수산중공업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014280",
+      "name": "금강공업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "267850",
+      "name": "아시아나IDT",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001020",
+      "name": "페이퍼코리아",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014580",
+      "name": "태경비케이",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "031440",
+      "name": "신세계푸드",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "248170",
+      "name": "샘표식품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005870",
+      "name": "휴니드",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "015590",
+      "name": "KIB플러그에너지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000157",
+      "name": "두산2우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007540",
+      "name": "샘표",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "035000",
+      "name": "HS애드",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "013580",
+      "name": "계룡건설",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008700",
+      "name": "아남전자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012610",
+      "name": "경인양행",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "023450",
+      "name": "동남합성",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002620",
+      "name": "제일파마홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "033530",
+      "name": "SJG세종",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "363280",
+      "name": "티와이홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012600",
+      "name": "청호ICT",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009070",
+      "name": "KCTC",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "058850",
+      "name": "KTcs",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004140",
+      "name": "동방",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014530",
+      "name": "극동유화",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "019440",
+      "name": "세아특수강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001470",
+      "name": "삼부토건",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "089470",
+      "name": "HDC현대EP",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002780",
+      "name": "진흥기업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "016710",
+      "name": "대성홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "487570",
+      "name": "HS효성",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003780",
+      "name": "진양산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "063160",
+      "name": "종근당바이오",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001080",
+      "name": "만호제강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "396690",
+      "name": "미래에셋글로벌리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004830",
+      "name": "덕성",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002200",
+      "name": "한국수출포장",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "017370",
+      "name": "우신시스템",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007280",
+      "name": "한국특강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011150",
+      "name": "CJ씨푸드",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "034590",
+      "name": "인천도시가스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "123690",
+      "name": "한국화장품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002450",
+      "name": "삼익악기",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004310",
+      "name": "현대약품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "163560",
+      "name": "동일고무벨트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002700",
+      "name": "신일전자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003480",
+      "name": "한진중공업홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012690",
+      "name": "모나리자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "267290",
+      "name": "경동도시가스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "013570",
+      "name": "디와이",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010770",
+      "name": "평화홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "017900",
+      "name": "광전자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002720",
+      "name": "국제약품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "096775",
+      "name": "SK이노베이션우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004150",
+      "name": "한솔홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "264900",
+      "name": "크라운제과",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011700",
+      "name": "한신기계",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002600",
+      "name": "조흥",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "016090",
+      "name": "대현",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008260",
+      "name": "NI스틸",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "016740",
+      "name": "두올",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004100",
+      "name": "태양금속",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006370",
+      "name": "대구백화점",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002210",
+      "name": "동성제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004890",
+      "name": "동일산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "227840",
+      "name": "현대코퍼레이션홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002460",
+      "name": "HS화성",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "111380",
+      "name": "동인기연",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "023000",
+      "name": "삼원강재",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "372910",
+      "name": "한컴라이프케어",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002990",
+      "name": "금호건설",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014440",
+      "name": "영보화학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "047400",
+      "name": "유니온머티리얼",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "079980",
+      "name": "휴비스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000180",
+      "name": "성창기업지주",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005800",
+      "name": "신영와코루",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "058860",
+      "name": "KTis",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "044820",
+      "name": "코스맥스비티아이",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "023800",
+      "name": "인지컨트롤스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001560",
+      "name": "제일연마",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "067830",
+      "name": "세이브존I&C",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "244920",
+      "name": "에이플러스에셋",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "024900",
+      "name": "덕양산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010040",
+      "name": "한국내화",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014710",
+      "name": "사조씨푸드",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006880",
+      "name": "신송홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "032560",
+      "name": "황금에스티",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "069460",
+      "name": "대호에이엘",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014790",
+      "name": "HL D&I",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000910",
+      "name": "유니온",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011690",
+      "name": "와이투솔루션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "051630",
+      "name": "진양화학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004540",
+      "name": "깨끗한나라",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009200",
+      "name": "무림페이퍼",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "338100",
+      "name": "NH프라임리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004840",
+      "name": "DRB동일",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "071090",
+      "name": "하이스틸",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "013520",
+      "name": "화승코퍼레이션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "018500",
+      "name": "동원금속",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "078000",
+      "name": "텔코웨어",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000590",
+      "name": "CS홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007590",
+      "name": "동방아그로",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "093240",
+      "name": "형지엘리트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001260",
+      "name": "남광토건",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005960",
+      "name": "동부건설",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006090",
+      "name": "사조오양",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004870",
+      "name": "티웨이홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005740",
+      "name": "크라운해태홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003925",
+      "name": "남양유업우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "021820",
+      "name": "세원정공",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "036580",
+      "name": "팜스코",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000220",
+      "name": "유유제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004770",
+      "name": "써니전자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004720",
+      "name": "팜젠사이언스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010960",
+      "name": "삼호개발",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "111110",
+      "name": "호전실업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011390",
+      "name": "부산산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "129260",
+      "name": "인터지스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "072130",
+      "name": "유엔젤",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004910",
+      "name": "조광페인트",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "013700",
+      "name": "까뮤이앤씨",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "085310",
+      "name": "엔케이",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "031820",
+      "name": "콤텍시스템",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002140",
+      "name": "고려산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004960",
+      "name": "한신공영",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "101140",
+      "name": "인바이오젠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "015020",
+      "name": "이스타코",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011300",
+      "name": "성안머티리얼스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000230",
+      "name": "일동홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "102280",
+      "name": "쌍방울",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "013870",
+      "name": "지엠비코리아",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "092440",
+      "name": "기신정기",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "03473K",
+      "name": "SK우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007980",
+      "name": "TP",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "090080",
+      "name": "평화산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "016880",
+      "name": "웅진",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003010",
+      "name": "혜인",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "481850",
+      "name": "신한글로벌액티브리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002410",
+      "name": "범양건영",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "091090",
+      "name": "세원이앤씨",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "357250",
+      "name": "미래에셋맵스리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "075180",
+      "name": "새론오토모티브",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010660",
+      "name": "화천기계",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "025750",
+      "name": "한솔홈데코",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005750",
+      "name": "대림B&Co",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009180",
+      "name": "한솔로지스틱스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009770",
+      "name": "삼정펄프",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "055490",
+      "name": "테이팩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004450",
+      "name": "삼화왕관",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001275",
+      "name": "부국증권우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002760",
+      "name": "보락",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003560",
+      "name": "IHQ",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "078935",
+      "name": "GS우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006805",
+      "name": "미래에셋증권우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004060",
+      "name": "SG세계물산",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "155660",
+      "name": "DSR",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "100220",
+      "name": "비상교육",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000850",
+      "name": "화천기공",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "041650",
+      "name": "상신브레이크",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "33626K",
+      "name": "두산퓨얼셀1우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "465770",
+      "name": "STX그린로지스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "017040",
+      "name": "광명전기",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011230",
+      "name": "삼화전자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010640",
+      "name": "진양폴리",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "378850",
+      "name": "화승알앤에이",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "092780",
+      "name": "동양피스톤",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "021050",
+      "name": "서원",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000890",
+      "name": "보해양조",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002795",
+      "name": "아모레G우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "058730",
+      "name": "다스코",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "074610",
+      "name": "이엔플러스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "023350",
+      "name": "한국종합기술",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "37550L",
+      "name": "DL이앤씨2우(전환)",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009190",
+      "name": "대양금속",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "023810",
+      "name": "인팩",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008870",
+      "name": "금비",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011420",
+      "name": "갤럭시아에스엠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008250",
+      "name": "이건산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014990",
+      "name": "인디에프",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006740",
+      "name": "영풍제지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "027740",
+      "name": "마니커",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "017180",
+      "name": "명문제약",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "019180",
+      "name": "티에이치엔",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008420",
+      "name": "문배철강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000650",
+      "name": "천일고속",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "120115",
+      "name": "코오롱인더우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007610",
+      "name": "선도전기",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001620",
+      "name": "케이비아이동국실업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001550",
+      "name": "조비",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "019490",
+      "name": "엑시큐어하이트론",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002360",
+      "name": "SH에너지화학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004410",
+      "name": "서울식품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000725",
+      "name": "현대건설우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004440",
+      "name": "삼일씨엔에스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "069730",
+      "name": "DSR제강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005305",
+      "name": "롯데칠성우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004920",
+      "name": "씨아이테크",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009320",
+      "name": "아진전자부품",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002220",
+      "name": "한일철강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "026940",
+      "name": "부국철강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010600",
+      "name": "웰바이오텍",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003080",
+      "name": "성보화학",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "308170",
+      "name": "씨티알모빌리티",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "118000",
+      "name": "메타케어",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "134790",
+      "name": "시디즈",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002920",
+      "name": "유성기업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "145270",
+      "name": "케이탑리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009835",
+      "name": "한화솔루션우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009810",
+      "name": "플레이그램",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "357430",
+      "name": "마스턴프리미어리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "025560",
+      "name": "미래산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "025530",
+      "name": "SJM홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "123700",
+      "name": "SJM",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002880",
+      "name": "대유에이텍",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006980",
+      "name": "우성",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "023960",
+      "name": "에쓰씨엔지니어링",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006125",
+      "name": "SK디스커버리우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "020760",
+      "name": "일진디스플",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001290",
+      "name": "상상인증권",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008600",
+      "name": "윌비스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012280",
+      "name": "영화금속",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "28513K",
+      "name": "SK케미칼우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009460",
+      "name": "한창제지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "143210",
+      "name": "핸즈코퍼레이션",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "446070",
+      "name": "유니드비티플러스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014130",
+      "name": "한익스프레스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "049800",
+      "name": "우진플라임",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012200",
+      "name": "계양전기",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003465",
+      "name": "유화증권우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012160",
+      "name": "영흥",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004270",
+      "name": "남성",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "024890",
+      "name": "대원화성",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001210",
+      "name": "금호전기",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003475",
+      "name": "유안타증권우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005030",
+      "name": "부산주공",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002870",
+      "name": "신풍",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005360",
+      "name": "모나미",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006570",
+      "name": "대림통상",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "023150",
+      "name": "MH에탄올",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002820",
+      "name": "SUN&L",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "033250",
+      "name": "체시스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "37550K",
+      "name": "DL이앤씨우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "133820",
+      "name": "화인베스틸",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "013000",
+      "name": "세우글로벌",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "090370",
+      "name": "메타랩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "069640",
+      "name": "한세엠케이",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001140",
+      "name": "국보",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "33637K",
+      "name": "솔루스첨단소재1우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000215",
+      "name": "DL우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006200",
+      "name": "한국전자홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "071950",
+      "name": "코아스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000950",
+      "name": "전방",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005820",
+      "name": "원림",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011090",
+      "name": "에넥스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "119650",
+      "name": "KC코트렐",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003680",
+      "name": "한성기업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005320",
+      "name": "온타이드",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009140",
+      "name": "경인전자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000760",
+      "name": "이화산업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002420",
+      "name": "세기상사",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "145210",
+      "name": "다이나믹디자인",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004365",
+      "name": "세방우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003535",
+      "name": "한화투자증권우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001070",
+      "name": "대한방직",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "024070",
+      "name": "WISCOM",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "019175",
+      "name": "신풍제약우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009310",
+      "name": "참엔지니어링",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001420",
+      "name": "태원물산",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001465",
+      "name": "BYC우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002690",
+      "name": "동일제강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002070",
+      "name": "비비안",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014910",
+      "name": "성문전자",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003495",
+      "name": "대한항공우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008775",
+      "name": "호텔신라우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010420",
+      "name": "한솔PNS",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "019685",
+      "name": "대교우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001685",
+      "name": "대상우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000040",
+      "name": "KR모터스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "084870",
+      "name": "TBH글로벌",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005110",
+      "name": "한창",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "030720",
+      "name": "동원수산",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007120",
+      "name": "미래아이앤지",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "33626L",
+      "name": "두산퓨얼셀2우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "044380",
+      "name": "주연테크",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "088790",
+      "name": "진도",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "010400",
+      "name": "우진아이엔에스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "015260",
+      "name": "에이엔피",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012170",
+      "name": "아센디오",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "00499K",
+      "name": "롯데지주우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "084670",
+      "name": "동양고속",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "152550",
+      "name": "한국ANKOR유전",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "025890",
+      "name": "한국주강",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "084695",
+      "name": "대상홀딩스우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005257",
+      "name": "녹십자홀딩스2우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "108675",
+      "name": "LX하우시스우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002355",
+      "name": "넥센타이어1우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001770",
+      "name": "SHD",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009440",
+      "name": "KC그린홀딩스",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000075",
+      "name": "삼양홀딩스우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000087",
+      "name": "하이트진로2우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007815",
+      "name": "코리아써우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "025620",
+      "name": "제이준코스메틱",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "35320K",
+      "name": "대덕전자1우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "204210",
+      "name": "스타에스엠리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "33637L",
+      "name": "솔루스첨단소재2우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004835",
+      "name": "덕성우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001795",
+      "name": "대한제당우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002025",
+      "name": "코오롱우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004105",
+      "name": "태양금속우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "140910",
+      "name": "에이리츠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008500",
+      "name": "일정실업",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "18064K",
+      "name": "한진칼우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004255",
+      "name": "NPC우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001067",
+      "name": "JW중외제약2우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "38380K",
+      "name": "LX홀딩스1우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "003075",
+      "name": "코오롱글로벌우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005725",
+      "name": "넥센우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "45014K",
+      "name": "코오롱모빌리티그룹우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000225",
+      "name": "유유제약1우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "145995",
+      "name": "삼양사우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "006345",
+      "name": "대원전선우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001065",
+      "name": "JW중외제약우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "00806K",
+      "name": "대덕1우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "168490",
+      "name": "한국패러랠",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000885",
+      "name": "한화우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004985",
+      "name": "성신양회우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "26490K",
+      "name": "크라운제과우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "45226K",
+      "name": "한화갤러리아우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000325",
+      "name": "노루홀딩스우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001515",
+      "name": "SK증권우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001755",
+      "name": "한양증권우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "090355",
+      "name": "노루페인트우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "007575",
+      "name": "일양약품우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000145",
+      "name": "하이트진로홀딩스우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "36328K",
+      "name": "티와이홀딩스우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005745",
+      "name": "크라운해태홀딩스우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014825",
+      "name": "동원시스템즈우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "008355",
+      "name": "남선알미우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004545",
+      "name": "깨끗한나라우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "005965",
+      "name": "동부건설우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "00781K",
+      "name": "코리아써키트2우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "012205",
+      "name": "계양전기우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014285",
+      "name": "금강공업우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002995",
+      "name": "금호건설우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000545",
+      "name": "흥국화재우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "009415",
+      "name": "태영건설우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "011155",
+      "name": "CJ씨푸드1우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "000227",
+      "name": "유유제약2우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "014915",
+      "name": "성문전자우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002787",
+      "name": "진흥기업2우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "002785",
+      "name": "진흥기업우B",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "004415",
+      "name": "서울식품우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001525",
+      "name": "동양우",
+      "market": "KOSPI"
+    },
+    {
+      "symbol": "001527",
+      "name": "동양2우B",
+      "market": "KOSPI"
+    }
+  ],
+  "count": 961
+}

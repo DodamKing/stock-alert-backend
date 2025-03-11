@@ -35,6 +35,8 @@ const server = app.listen(PORT, () => {
     console.log(`🚀 Express 서버가 ${PORT} 포트에서 실행 중입니다.`)
     console.log(`🔄 FastAPI 서버 연결: ${config.fastApiUrl}`)
     console.log(`🛠️ 환경: ${config.env}`)
+
+    require('./config/setupCron')
 })
 
 // 프로세스 종료 처리

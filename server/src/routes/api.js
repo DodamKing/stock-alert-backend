@@ -1,6 +1,12 @@
 const router = require('express').Router()
 const axios = require('axios')
 const config = require('../config/config')
+const fs = require('fs/promises')
+const path = require('path')
+
+// 데이터 디렉토리 경로
+const DATA_DIR = path.join(__dirname, '../../data')
+const MARKET_CODES = require('../config/market_codes')
 
 // FastAPI 클라이언트
 const fastApiClient = axios.create({
@@ -28,7 +34,7 @@ router.get('/status', async (req, res, next) => {
 // 1. 주식 이름으로 종목코드(심볼) 검색 API
 router.get('/search', async (req, res, next) => {
     try {
-        const { query, markets, limit } = req.query
+        const { query, markets, limit = 30 } = req.query
 
         if (!query) {
             return res.status(400).json({
@@ -37,37 +43,88 @@ router.get('/search', async (req, res, next) => {
             })
         }
 
-        // FastAPI의 /api/search 엔드포인트 호출
-        let url = `/api/search?query=${encodeURIComponent(query)}`
-        if (markets) url += `&markets=${encodeURIComponent(markets)}`
-        if (limit) url += `&limit=${encodeURIComponent(limit)}`
-        
-        console.log(`FastAPI 요청 URL: ${url}`)
-        const response = await fastApiClient.get(url)
+        console.log(`검색 요청: query=${query}, markets=${markets}, limit=${limit}`)
 
-        // 검색 결과 가공 - 종목 유형 추가
-        const results = response.data.results.map(item => {
-            // 시장 정보를 기반으로 종목 유형 추가
-            let type = 'stock'
-            if (item.market.includes('KOSPI') || item.market.includes('KOSDAQ')) {
-                type = 'kr-stock'
-            } else if (item.market.includes('ETF')) {
-                type = 'etf'
-            } else if (item.market.includes('NASDAQ') || item.market.includes('NYSE') || item.market.includes('AMEX')) {
-                type = 'us-stock'
+        // 검색할 시장 목록 설정
+        let marketsToSearch = MARKET_CODES
+        if (markets) {
+            const marketList = markets.split(',').map(m => m.trim().toUpperCase())
+            marketsToSearch = marketList.map(m => {
+                // 시장 코드 변환 (ETF/KR -> KR 등)
+                if (m === 'ETF/KR' || m === 'ETF' || m === 'ETFS') return 'ETF_KR'
+                if (m === 'ETF/US') return 'ETF_US'
+                if (m === 'KS' || m === 'KRX') return 'KOSPI'
+                if (m === 'KQ') return 'KOSDAQ'
+                if (m === 'NQ') return 'NASDAQ'
+                if (m === 'NY') return 'NYSE'
+                
+                return m
+            })
+        }
+
+        // 결과 저장 배열
+        let results = []
+
+        // 각 시장별로 JSON 파일에서 검색
+        for (const marketCode of marketsToSearch) {
+            try {
+                // JSON 파일 읽기
+                const filePath = path.join(DATA_DIR, `${marketCode}.json`)
+                const fileData = await fs.readFile(filePath, 'utf8')
+                const marketData = JSON.parse(fileData)
+
+                if (!marketData.stocks || !Array.isArray(marketData.stocks)) {
+                    console.warn(`${marketCode} 시장 데이터 형식이 올바르지 않습니다.`)
+                    continue
+                }
+
+                // 검색어로 필터링 (대소문자 구분 없이)
+                const queryLower = query.toLowerCase()
+                const matchingStocks = marketData.stocks.filter(stock => {
+                    const symbolMatch = stock.symbol.toLowerCase().includes(queryLower)
+                    const nameMatch = stock.name.toLowerCase().includes(queryLower)
+                    return symbolMatch || nameMatch
+                })
+
+                // 종목 유형 추가
+                const stocksWithType = matchingStocks.map(stock => {
+                    // 시장 정보를 기반으로 종목 유형 추가
+                    let type = 'stock'
+                    if (stock.market.includes('KOSPI') || stock.market.includes('KOSDAQ')) {
+                        type = 'kr-stock'
+                    } else if (marketCode === 'KR' || marketCode === 'US') {
+                        type = 'etf'
+                    } else if (stock.market.includes('NASDAQ') || stock.market.includes('NYSE') || stock.market.includes('AMEX')) {
+                        type = 'us-stock'
+                    }
+
+                    return {
+                        ...stock,
+                        type
+                    }
+                })
+
+                // 결과에 추가
+                results = [...results, ...stocksWithType]
+            } catch (error) {
+                // JSON 파일이 없는 경우 등의 오류는 무시하고 계속 진행
+                console.warn(`${marketCode} 시장 데이터 처리 중 오류:`, error.message)
+                continue
             }
-            
-            return {
-                ...item,
-                type
-            }
-        })
+        }
+
+        // 결과가 너무 많으면 제한
+        if (results.length > limit) {
+            results = results.slice(0, parseInt(limit))
+        }
+
+        console.log(`검색 결과: ${results.length}개 종목 찾음`)
 
         res.json({
             status: 'success',
             data: results,
-            count: response.data.count,
-            query: response.data.query,
+            count: results.length,
+            query: query,
         })
     } catch (error) {
         console.error('검색 API 오류:', error)

@@ -1,0 +1,1561 @@
+{
+  "market": "AMEX",
+  "stocks": [
+    {
+      "symbol": "IMO",
+      "name": "Imperial Oil Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CBOE",
+      "name": "Cboe Global Markets Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PHYS",
+      "name": "Sprott Physical Gold Trust",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PSLV",
+      "name": "Sprott Physical Silver Trust USD",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CEF",
+      "name": "Sprott Physical Gold and Silver Trust USD",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SIM",
+      "name": "Grupo Simec SAB de CV ADR",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BTG",
+      "name": "B2Gold Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "EQX",
+      "name": "Equinox Gold Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "UTG",
+      "name": "Reaves Utility Income Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SEB",
+      "name": "Seaboard Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PRK",
+      "name": "Park National Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ORLA",
+      "name": "Orla Mining Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NGD",
+      "name": "New Gold Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "UEC",
+      "name": "Uranium Energy Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CLM",
+      "name": "Cornerstone Strategic Investment Fund，Inc.",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MAG",
+      "name": "MAG Silver Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NHC",
+      "name": "National Healthcare Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "TIC",
+      "name": "Acuren Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CET",
+      "name": "Central Securities Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "LEU",
+      "name": "Centrus Energy Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "EVV",
+      "name": "Eaton Vance Limited Duration Income Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "DNN",
+      "name": "Denison Mines Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NG",
+      "name": "NovaGold Resources Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "TMP",
+      "name": "Tompkins Financial Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CRF",
+      "name": "Cornerstone Total Return Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "UUUU",
+      "name": "Energy Fuels Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SVM",
+      "name": "Silvercorp Metals Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "IE",
+      "name": "Ivanhoe Electric Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "EXOD",
+      "name": "Exodus Movement Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "FAX",
+      "name": "Abrdn Asia Pacific Income Closed End Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ARMN",
+      "name": "Aris Mining Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GGN",
+      "name": "GAMCO Global Gold Natural Resources and Income Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "TGB",
+      "name": "Taseko Mines Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "REPX",
+      "name": "Riley Exploration Permian Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "EIM",
+      "name": "Eaton Vance Municipal Bond Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "VZLA",
+      "name": "Vizsla Silver Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SLSR",
+      "name": "Solaris Resources Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CNL",
+      "name": "Collective Mining Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NML",
+      "name": "Neuberger Berman Energy Infrastructure and Income Closed End Fund Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BHB",
+      "name": "Bar Harbor Bankshares",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NSTB.U",
+      "name": "Northern Star Investment Redeemable Units",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PLM",
+      "name": "Polymet Mining Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "EAD",
+      "name": "Allspring Income Opportunities Mutual Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "VKI",
+      "name": "Invesco Advantage Municipal Inc Tr II",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SENS",
+      "name": "Senseonics Holdings Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "OBE",
+      "name": "Obsidian Energy Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "VENU",
+      "name": "Venu Holding Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NAK",
+      "name": "Northern Dynasty Minerals Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "VCXB.U",
+      "name": "10X Capital Venture Acquisition III Units",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NFGC",
+      "name": "New Found Gold Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NBH",
+      "name": "Neuberger Berman Municipal Fund Inc.",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GAU",
+      "name": "Galiano Gold Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GRAF.U",
+      "name": "Graf Global Units",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "RLGT",
+      "name": "Radiant Logistics Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "LPA",
+      "name": "Logistic Properties of The Americas",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GRAF",
+      "name": "Graf Global Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "USAS",
+      "name": "Americas Gold and Silver Corporation",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BRBS",
+      "name": "Blue Ridge Bankshares Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "KULR",
+      "name": "KULR Technology Group Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "URG",
+      "name": "Ur-Energy Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "OZ",
+      "name": "Belpointe PREP Units Class A",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SEG",
+      "name": "Seaport Entertainment Group Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "DC",
+      "name": "Dakota Gold Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "LEGT",
+      "name": "Legato Merger Corp III",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "IAUX",
+      "name": "I-80 Gold Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "FTF",
+      "name": "Franklin Limited Duration Income Trust",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CIX",
+      "name": "CompX International Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ERC",
+      "name": "Allspring Multi-Sector Income Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "AEF",
+      "name": "abrdn Emerging Markets ex-China Fund，Inc.",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "FLYX",
+      "name": "Flyexclusive Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "HYLN",
+      "name": "Hyliion Holdings Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MTA",
+      "name": "Metalla Royalty & Streaming Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "LEGT.U",
+      "name": "Legato Merger Units",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GROY",
+      "name": "Gold Royalty Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "EVM",
+      "name": "Eaton Vance California Municipal Bond Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "DHY",
+      "name": "Credit Suisse High Yield Bond Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "EVI",
+      "name": "EVI Industries Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "EP",
+      "name": "Empire Petroleum Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "REI",
+      "name": "Ring Energy Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "EVBN",
+      "name": "Evans Bancorp Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NHS",
+      "name": "Neuberger Berman High Yield Strategies Fund Inc.",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "AMBI",
+      "name": "Ambipar Emergency Response",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NEN",
+      "name": "New England Realty Associates LP DRC",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SLI",
+      "name": "Standard Lithium Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ELMD",
+      "name": "Electromed Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GLO",
+      "name": "Clough Global Opportunities Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ELLO",
+      "name": "Ellomay Capital Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "TMQ",
+      "name": "Trilogy Metals Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CMCL",
+      "name": "Caledonia Mining Corporation PLC",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "WRN",
+      "name": "Western Copper and Gold Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "EMX",
+      "name": "EMX Royalty Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MRT",
+      "name": "Marti Technologies Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "FSP",
+      "name": "Franklin Street Properties Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ASM",
+      "name": "Avino Silver & Gold Mines Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GENC",
+      "name": "Gencor Industries Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ITRG",
+      "name": "Integra Resources Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NEWP",
+      "name": "New Pacific Metals Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SPPP",
+      "name": "Sprott Physical Platinum and Palladium Trust",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ENX",
+      "name": "Eaton Vance New York Municipal Bond Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CATX",
+      "name": "Perspective Therapeutics Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PLX",
+      "name": "Protalix Biotherapeutics Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SLND",
+      "name": "Southland Holdings Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "EPM",
+      "name": "Evolution Petroleum Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GTE",
+      "name": "Gran Tierra Energy Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GLDG",
+      "name": "GoldMining Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CIK",
+      "name": "Credit Suisse Asset Management Income Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NRO",
+      "name": "Neuberger Berman Real Estate Secs Inc Fund Inc.",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "DMF",
+      "name": "BNY Mellon Municipal Income Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "STXS",
+      "name": "Stereotaxis Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ESBA",
+      "name": "Empire State Realty Operating Partnership Units Series ES",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "STRW",
+      "name": "Strawberry Fields Reit Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CYBN",
+      "name": "Cybin Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "VCXB",
+      "name": "10X Capital Venture Acquisition Corp III",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ELA",
+      "name": "Envela Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "IDR",
+      "name": "Idaho Strategic Resources Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BEEP",
+      "name": "Mobile Infrastructure Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "UAMY",
+      "name": "United States Antimony Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MYO",
+      "name": "Myomo Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ACU",
+      "name": "Acme United Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "INFU",
+      "name": "InfuSystem Holdings Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "VFL",
+      "name": "Abrdn National Municipal Income Mutual Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ECF",
+      "name": "Ellsworth Growth and Income Fund Ltd.",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "THM",
+      "name": "International Tower Hill Mines Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "LCTX",
+      "name": "Lineage Cell Therapeutics Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CHEB",
+      "name": "Chenghe Acquisition II Co",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PLG",
+      "name": "Platinum Group Metals Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CHEB.U",
+      "name": "Chenghe Acquisition II Units",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CMT",
+      "name": "Core Molding Technologies Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GLQ",
+      "name": "Clough Global Equity Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "COE",
+      "name": "51Talk Online Education Group ADR",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MPTI",
+      "name": "M-Tron Industries Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MCRP",
+      "name": "Micropolis Holding Co",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CTGO",
+      "name": "Contango ORE Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "IAF",
+      "name": "abrdn Australia Equity Mutual Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MHH",
+      "name": "Mastech Digital Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "FRD",
+      "name": "Friedman Industries Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BCV",
+      "name": "Bancroft Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PCG PR A",
+      "name": "Pacific Gas and Electric 6% 1st Pref Shs",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "HNW",
+      "name": "Pioneer Diversified High Income Fund，Inc.",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ERH",
+      "name": "Allspring Utilities And High Income Mutual Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BLUA",
+      "name": "Blueriver Acquisition Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BKTI",
+      "name": "BK Technologies Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GLU",
+      "name": "Gabelli Global Utility and Income Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GRO",
+      "name": "Brazil Potash Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "LUD",
+      "name": "Luda Technology Group Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SATX",
+      "name": "Satixfy Communications Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "INTT",
+      "name": "inTest Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "DMYY.U",
+      "name": "dMY Squared Technology Group Units Class A",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "UMAC",
+      "name": "Unusual Machines Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "TRX",
+      "name": "TRX Gold Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "VGZ",
+      "name": "Vista Gold Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BRIA",
+      "name": "BrilliA Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "LGCY",
+      "name": "Legacy Education Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "DIT",
+      "name": "Amcon Distributing Co",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "FCO",
+      "name": "abrdn Global Income Mutual Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CTM",
+      "name": "Castellum Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MLSS",
+      "name": "Milestone Scientific Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ARMP",
+      "name": "Armata Pharmaceuticals Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "IOR",
+      "name": "Income Opportunity Realty Investors Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "AREN",
+      "name": "Arena Group Holdings Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CEV",
+      "name": "Eaton Vance California Municipal Income Closed Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ESP",
+      "name": "Espey MFG & Electronics Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GLV",
+      "name": "Clough Global Dividend and Income Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GGN PR B",
+      "name": "GAMCO Global Gold Natural Resources and Income 5.00% Cumulative Pref Shs Series",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "OPTT",
+      "name": "Ocean Power Technologies Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "FSI",
+      "name": "Flexible Solutions International Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PED",
+      "name": "PEDEVCO Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "XTNT",
+      "name": "Xtant Medical Holdings Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "FURY",
+      "name": "Fury Gold Mines Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "APT",
+      "name": "Alpha Pro Tech Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "LODE",
+      "name": "Comstock Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SACH",
+      "name": "Sachem Capital Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "LSF",
+      "name": "Laird Superfood Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "VNRX",
+      "name": "VolitionRX Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CCEL",
+      "name": "Cryo-Cell International Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "OPHC",
+      "name": "OptimumBank Holdings Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "INUV",
+      "name": "Inuvo Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MYND",
+      "name": "Mynd.ai Inc ADR",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GORO",
+      "name": "Gold Resource Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "XPL",
+      "name": "Solitario Resources Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "INLX",
+      "name": "Intellinetics Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BHM",
+      "name": "Bluerock Homes Trust Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BDL",
+      "name": "Flanigan's Enterprises Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SER",
+      "name": "Serina Therapeutics Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CVU",
+      "name": "CPI Aerostructures Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "AXIL",
+      "name": "AXIL Brands Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "DMYY",
+      "name": "DMY Squared Technology Group Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "OGCP",
+      "name": "Empire State Realty Operating Partnership Units Series 60",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MAIA",
+      "name": "Maia Biotechnology Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MGLD",
+      "name": "Marygold Companies Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GRF",
+      "name": "Eagle Capital Growth Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "OPP PR C",
+      "name": "RiverNorth DoubleLine Strategic Opportunity 6.00 Term Pref Shs Series C",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "HWM PR",
+      "name": "Howmet Aerospace Pref Shs",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SACH PR A",
+      "name": "Sachem Capital 7 75 Cumulative Redeemable Pref Shs Series A",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GLU PR B",
+      "name": "The Gabelli Global Utility Income Cumulative Pref Shs Series B",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ACCS",
+      "name": "ACCESS Newswire Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "WWR",
+      "name": "Westwater Resources Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "OSTX",
+      "name": "OS Therapies Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "WYY",
+      "name": "WidePoint Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ATNM",
+      "name": "Actinium Pharmaceuticals Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "TOPP",
+      "name": "Toppoint Holdings Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PCG PR D",
+      "name": "Pacific Gas and Electric 5% 1st Redeemable Pref Shs",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "LGL",
+      "name": "LGL Group Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NTIP",
+      "name": "Network-1 Technologies Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ZDGE",
+      "name": "Zedge Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "TOPS",
+      "name": "Top Ships Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BCV PR A",
+      "name": "Bancroft 5.375 Cumulative Pref Shs Series A",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "TOON",
+      "name": "Kartoon Studios Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SVT",
+      "name": "Servotronics Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "IGC",
+      "name": "IGC Pharma Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "INDO",
+      "name": "Indonesia Energy Corp Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "TRT",
+      "name": "Trio-Tech International",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ECF PR A",
+      "name": "Ellsworth Growth and Income 5.25 Cumulative Pref Shs Series A",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ROLR",
+      "name": "High Roller Technologies Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CVM",
+      "name": "CEL-SCI Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MPU",
+      "name": "Mega Matrix Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PZG",
+      "name": "Paramount Gold Nevada Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PCG PR B",
+      "name": "Pacific Gas and Electric 5.5% 1st Pref Shs",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "JOB",
+      "name": "GEE Group Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CKX",
+      "name": "CKX Lands Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "IHT",
+      "name": "InnSuites Hospitality Trust",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BATL",
+      "name": "Battalion Oil Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BGI",
+      "name": "Birks Group Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "RVP",
+      "name": "Retractable Technologies Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GNS",
+      "name": "Genius Group Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CLDI",
+      "name": "Calidi Biotherapeutics Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PTN",
+      "name": "Palatin Technologies Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "FISK",
+      "name": "Empire State Realty Operating Partnership Units Series 250",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SYNX",
+      "name": "Silynxcom Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MXC",
+      "name": "Mexco Energy Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "RCG",
+      "name": "RENN Fund",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NNVC",
+      "name": "NanoViricides Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "DDC",
+      "name": "DDC Enterprise Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SIF",
+      "name": "SIFCO Industries Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "COHN",
+      "name": "Cohen & Company Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "AMS",
+      "name": "American Shared Hospital Services",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PMNT",
+      "name": "Perfect Moment Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PCG PR E",
+      "name": "Pacific Gas and Electric 5% 1st Redeemable Pref Shs Series A",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GPUS",
+      "name": "Hyperscale Data Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "AUST",
+      "name": "Austin Gold Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "HUSA",
+      "name": "Houston American Energy Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CANF",
+      "name": "Can Fite Biopharma Ltd ADR",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NRXS",
+      "name": "Neuraxis Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PLAG",
+      "name": "Planet Green Holdings Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BRN",
+      "name": "Barnwell Industries Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PHGE",
+      "name": "Biomx Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PCG PR G",
+      "name": "Pacific Gas and Electric 4.8% 1st Pref Shs",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CVR",
+      "name": "Chicago Rivet & Machine Co",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "AIRI",
+      "name": "Air Industries Group",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "KAPA",
+      "name": "Kairos Pharma Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GRFX",
+      "name": "Graphex Group Ltd ADR",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "AWX",
+      "name": "Avalon Holdings Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CHRO",
+      "name": "Channel Therapeutics Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NCL",
+      "name": "Northann Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PCG PR H",
+      "name": "Pacific Gas and Electric 4.5% 1st Pref Shs",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "IBO",
+      "name": "Impact Biomedical Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ZONE",
+      "name": "CleanCore Solutions Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MSN",
+      "name": "Emerson Radio Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BLUA.U",
+      "name": "Blueriver Acquisition Units",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "TPET",
+      "name": "Trio Petroleum Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MI",
+      "name": "Nft Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MWG",
+      "name": "Multi Ways Holdings Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SBEV",
+      "name": "Splash Beverage Group Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "VINE",
+      "name": "Fresh Vine Wine Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "RYDE",
+      "name": "Ryde Group Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "AMBO",
+      "name": "Ambow Education Holding Ltd ADR",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "AIM",
+      "name": "AIM ImmunoTech Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PCG PR C",
+      "name": "Pacific Gas and Electric 5% 1st Pref Shs",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MMA",
+      "name": "Mixed Martial Arts Group Ltd",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PCG PR I",
+      "name": "Pacific Gas and Electric 4.36% 1st Pref Shs",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "YCBD PR A",
+      "name": "cbdMD 8 0 Series A Cumulative Convertible Pref Shs",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SSY",
+      "name": "SunLink Health Systems Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "DSS",
+      "name": "DSS Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "UAVS",
+      "name": "Ageagle Aerial Systems Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "EONR",
+      "name": "EON Resources Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GBR",
+      "name": "New Concept Energy Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "KNW",
+      "name": "Know Labs Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "HCWC",
+      "name": "Healthy Choice Wellness Corp",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "AZTR",
+      "name": "Azitra Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MITQ",
+      "name": "Moving Image Technologies Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "CPHI",
+      "name": "China Pharma Holdings Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "UUU",
+      "name": "Universal Security Instruments Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "DLA",
+      "name": "Delta Apparel Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "POL",
+      "name": "Polished.Com Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "FOXO",
+      "name": "Foxo Technologies Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PW",
+      "name": "Power REIT",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "TOVX",
+      "name": "Theriva Biologics Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "OGEN",
+      "name": "Oragenics Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ITP",
+      "name": "IT Tech Packaging Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "EFSH",
+      "name": "1847 Holdings LLC",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BURU",
+      "name": "NUBURU Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BTTR",
+      "name": "Better Choice Company Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GPUS PR D",
+      "name": "Hyperscale Data 13 00 Cumulative Redeemable Perpetual Pref Shs Series D",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PAPL",
+      "name": "Pineapple Financial Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SOAR",
+      "name": "Volato Group Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "NBY",
+      "name": "NovaBay Pharmaceuticals Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "MTNB",
+      "name": "Matinas BioPharma Holdings Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "VTAK",
+      "name": "Catheter Precision Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "BQ",
+      "name": "Boqii Holding Ltd ADR",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ID",
+      "name": "PARTS iD Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "YCBD",
+      "name": "cbdMD Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ATCH",
+      "name": "Atlasclear Holdings Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SGN",
+      "name": "Signing Day Sports Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "DXF",
+      "name": "Eason Technology Ltd ADR",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "AEON",
+      "name": "Aeon Biopharma Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "PW PR A",
+      "name": "Power REIT 7.75% Cumulative Redeemable Perpetual Pref Shs Series A",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "GLU PR A",
+      "name": "Gabelli Global Utility and Income Cumulative Puttable and Callable Pref Shs",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "SCPX",
+      "name": "Scorpius Holdings Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "LNFA.U",
+      "name": "L F Acquisition Redeemable Units Class A",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "AMDI",
+      "name": "Amphitrite Digital Inc",
+      "market": "AMEX"
+    },
+    {
+      "symbol": "ONDR",
+      "name": "Sushi Ginza Onodera Inc",
+      "market": "AMEX"
+    }
+  ],
+  "count": 311
+}

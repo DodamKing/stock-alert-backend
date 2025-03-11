@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Path
 import FinanceDataReader as fdr
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
@@ -18,12 +18,19 @@ app = FastAPI(
     version="1.0.0",
 )
 
+
 # ======== 모델 정의 ========
 class StockSymbol(BaseModel):
     symbol: str
     name: str
     market: str
-    
+
+# 종목 리스트를 위한 모델 정의
+class StocksListResponse(BaseModel):
+    market: str
+    stocks: List[StockSymbol]
+    count: int
+
 class SearchResponse(BaseModel):
     query: str
     results: List[StockSymbol]
@@ -54,9 +61,9 @@ def get_market_code(market: str) -> str:
         return "NYSE"
     elif market_upper in ["AMEX"]:
         return "AMEX"
-    elif market_upper in ["ETF", "ETFS", "ETF/KR"]:
+    elif market_upper in ["ETF", "ETFS", "ETF/KR", "ETF_KR"]:
         return "ETF/KR"
-    elif market_upper in ["ETF/US"]:
+    elif market_upper in ["ETF/US", "ETF_US"]:
         return "ETF/US"
     else:
         return market_upper
@@ -229,7 +236,7 @@ async def search_stocks(
         error_detail = str(e) + "\n" + traceback.format_exc()
         logger.error(f"검색 중 오류 발생: {error_detail}")
         raise HTTPException(status_code=500, detail=f"검색 중 오류 발생: {str(e)}")
-    
+
 @app.get("/api/stock-data")
 async def get_stock_data(
     symbol: str = Query(..., description="주식 심볼"),
@@ -248,46 +255,46 @@ async def get_stock_data(
     """
     try:
         logger.info(f"주식 데이터 요청: symbol={symbol}, market={market}, days={days}")
-        
+
         # 시장 코드 변환 (제공된 경우)
         determined_market = get_market_code(market) if market else None
-        
+
         # 데이터 가져오기
         end_date = datetime.now()
         start_date = end_date - timedelta(days=days)
-        
+
         # DataReader는 모든 종류(일반 주식, ETF)에 동일하게 사용
         try:
             df = fdr.DataReader(symbol, start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d"))
         except Exception as e:
             logger.error(f"주식 데이터 조회 실패: {str(e)}")
             raise HTTPException(status_code=404, detail=f"데이터를 찾을 수 없습니다: {symbol}")
-        
+
         if df.empty:
             logger.warning(f"심볼 {symbol}에 대한 데이터를 찾을 수 없습니다.")
             raise HTTPException(status_code=404, detail=f"데이터를 찾을 수 없습니다: {symbol}")
-        
+
         # 전고점 찾기
         peak_value = df['High'].max()
         peak_index = df['High'].idxmax()
-        
+
         # 현재 가격
         current_price = df['Close'].iloc[-1]
-        
+
         # 종목 이름과 시장 정보 찾기
         stock_name = None
-        
+
         # 시장 정보가 없는 경우 자동으로 찾기 시도
         if not determined_market:
             # 각 시장에서 심볼 찾기 시도
             for potential_market in ["KOSPI", "KOSDAQ", "ETF/KR", "ETF/US", "NASDAQ", "NYSE", "AMEX"]:
                 try:
                     market_list = fdr.StockListing(potential_market)
-                    
+
                     # 시장 목록에서 적절한 심볼 컬럼 찾기
                     market_columns = market_list.columns.tolist()
                     symbol_col = next((col for col in ["Symbol", "Code", "code", "symbol", "티커"] if col in market_columns), None)
-                    
+
                     if symbol_col:
                         # 심볼로 종목 찾기
                         matching = market_list[market_list[symbol_col] == symbol]
@@ -297,20 +304,20 @@ async def get_stock_data(
                 except Exception as e:
                     logger.warning(f"{potential_market} 시장에서 심볼 검색 중 오류: {str(e)}")
                     continue
-        
+
         logger.info(f"결정된 시장: {determined_market}")
-        
+
         # 종목 이름 가져오기
         try:
             if determined_market in ["ETF/KR", "ETF/US"]:
                 # ETF 목록에서 종목명 찾기
                 etf_list = fdr.StockListing(determined_market)
-                
+
                 # ETF 목록에서 적절한 티커와 이름 컬럼 찾기
                 etf_columns = etf_list.columns.tolist()
                 ticker_col = next((col for col in ["티커", "Symbol", "Code", "code", "symbol"] if col in etf_columns), None)
                 name_col = next((col for col in ["종목명", "Name", "name"] if col in etf_columns), None)
-                
+
                 if ticker_col and name_col:
                     # 티커로 ETF 찾기
                     matching_etf = etf_list[etf_list[ticker_col] == symbol]
@@ -322,12 +329,12 @@ async def get_stock_data(
                 for potential_market in potential_markets:
                     try:
                         stock_list = fdr.StockListing(potential_market)
-                        
+
                         # 주식 목록에서 적절한 심볼과 이름 컬럼 찾기
                         stock_columns = stock_list.columns.tolist()
                         symbol_col = next((col for col in ["Symbol", "Code", "code", "symbol"] if col in stock_columns), None)
                         name_col = next((col for col in ["Name", "Name(KOR)", "korean_name", "name"] if col in stock_columns), None)
-                        
+
                         if symbol_col and name_col:
                             # 심볼로 주식 찾기
                             matching_stock = stock_list[stock_list[symbol_col] == symbol]
@@ -341,7 +348,7 @@ async def get_stock_data(
                         continue
         except Exception as e:
             logger.warning(f"종목명 조회 실패: {str(e)}")
-        
+
         # 응답 데이터 구성
         response = {
             "symbol": symbol,
@@ -353,10 +360,10 @@ async def get_stock_data(
             "days_analyzed": days,
             "last_update": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
-        
+
         logger.info(f"{symbol} 데이터 반환: 현재가={current_price}, 고점={peak_value}")
         return response
-        
+
     except HTTPException:
         # 이미 처리된 HTTP 예외는 그대로 전달
         raise
@@ -365,6 +372,108 @@ async def get_stock_data(
         error_detail = str(e) + "\n" + traceback.format_exc()
         logger.error(f"주식 데이터 조회 중 오류 발생: {error_detail}")
         raise HTTPException(status_code=500, detail=f"데이터 조회 중 오류 발생: {str(e)}")
+
+
+@app.get("/api/market-symbols/{market}", response_model=StocksListResponse)
+async def get_market_symbols(
+    market: str = Path(
+        ..., description="시장 코드 (KOSPI, KOSDAQ, NASDAQ, NYSE, ETF/KR 등)"
+    ),
+    limit: int = Query(
+        None, description="최대 결과 수 (지정하지 않으면 모든 종목 반환)"
+    ),
+):
+    """
+    특정 시장에 속한 모든 종목 목록을 반환합니다.
+
+    - **market**: 시장 코드 (KOSPI, KOSDAQ, NASDAQ, NYSE, ETF/KR 등)
+    - **limit**: 최대 결과 수 (지정하지 않으면 모든 종목 반환)
+
+    종목 코드(심볼)와 이름이 포함된 목록을 반환합니다.
+    """
+    try:
+        logger.info(f"시장 종목 목록 요청: market={market}")
+
+        # 시장 코드 표준화
+        standard_market = get_market_code(market)
+
+        try:
+            # fdr을 통해 시장 종목 목록 가져오기
+            df = fdr.StockListing(standard_market)
+
+            if df.empty:
+                logger.warning(f"시장 {standard_market}에 대한 종목이 없습니다.")
+                raise HTTPException(
+                    status_code=404,
+                    detail=f"시장 {standard_market}에 대한 종목을 찾을 수 없습니다.",
+                )
+
+            # 컬럼 이름 확인
+            columns = df.columns.tolist()
+            logger.info(f"시장 {standard_market} 데이터 컬럼: {columns}")
+
+            # 가능한 심볼과 이름 컬럼 찾기
+            symbol_col = next(
+                (
+                    col
+                    for col in ["Symbol", "Code", "code", "symbol", "티커"]
+                    if col in columns
+                ),
+                None,
+            )
+            name_col = next(
+                (
+                    col
+                    for col in ["Name", "Name(KOR)", "korean_name", "name", "종목명"]
+                    if col in columns
+                ),
+                None,
+            )
+
+            if not symbol_col or not name_col:
+                logger.warning(
+                    f"시장 {standard_market}에서 적절한 컬럼을 찾을 수 없습니다. 컬럼: {columns}"
+                )
+                raise HTTPException(
+                    status_code=500,
+                    detail=f"시장 {standard_market}의 데이터 형식을 처리할 수 없습니다. 관리자에게 문의하세요.",
+                )
+
+            # 결과 리스트 생성
+            result = []
+            for _, row in df.iterrows():
+                symbol = str(row[symbol_col])
+                name = str(row[name_col])
+
+                item = StockSymbol(symbol=symbol, name=name, market=standard_market)
+                result.append(item)
+
+            # 결과가 너무 많으면 상위 N개만 반환
+            if limit and len(result) > limit:
+                result = result[:limit]
+
+            logger.info(f"시장 {standard_market} 종목 목록: {len(result)}개 항목 찾음")
+            return {"market": standard_market, "stocks": result, "count": len(result)}
+
+        except Exception as e:
+            logger.error(
+                f"시장 {standard_market} 종목 목록 조회 중 오류 발생: {str(e)}"
+            )
+            raise HTTPException(
+                status_code=500, detail=f"종목 목록 조회 중 오류 발생: {str(e)}"
+            )
+
+    except HTTPException:
+        # 이미 처리된 HTTP 예외는 그대로 전달
+        raise
+    except Exception as e:
+        import traceback
+
+        error_detail = str(e) + "\n" + traceback.format_exc()
+        logger.error(f"시장 종목 목록 조회 중 오류 발생: {error_detail}")
+        raise HTTPException(
+            status_code=500, detail=f"종목 목록 조회 중 오류 발생: {str(e)}"
+        )
 
 if __name__ == "__main__":
     import uvicorn
