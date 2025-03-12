@@ -8,7 +8,8 @@ module.exports = {
           FASTAPI_URL: 'http://localhost:8000',
           NODE_ENV: 'production'
         },
-        autorestart: true
+        autorestart: true,
+        time: true
       },
       {
         name: 'stock-fastapi',
@@ -16,7 +17,8 @@ module.exports = {
         args: 'app:app --host 0.0.0.0 --port 8000',
         cwd: './api/',
         interpreter: '/home/ubuntu/project/stock-alert-backend/api/venv/bin/python',
-        autorestart: true
+        autorestart: true,
+        time: true
       }
     ]
   };
