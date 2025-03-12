@@ -62,3 +62,5 @@ logs/
 htmlcov/
 .tox/
 .nox/
+
+/server/data/
