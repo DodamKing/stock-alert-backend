@@ -181,8 +181,7 @@ export default {
                 us: true,
                 etf: true
             },
-            apiBaseUrl: 'http://localhost:3000/api', // 실제 배포시 수정
-            isDarkMode: false,
+            apiBaseUrl: import.meta.env.VITE_API_URL || '/api', 
             notification: {
                 show: false,
                 message: '',

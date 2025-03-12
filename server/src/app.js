@@ -1,6 +1,7 @@
 const express = require('express')
 const helmet = require('helmet')
 const cors = require('cors')
+const path = require('path')
 const morgan = require('morgan')
 const config = require('./config/config')
 const apiRoutes = require('./routes/api')
@@ -8,14 +9,32 @@ const apiRoutes = require('./routes/api')
 const app = express()
 const PORT = config.port
 
-app.use(helmet())
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+            "script-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+            "img-src": ["'self'", "data:"]
+        }
+    }
+}))
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'))
 app.use('/api', config.apiLimiter)
 
+// const refererCheckMiddleware = require('./middlewares/refererCheck')
+// app.use('/api', refererCheckMiddleware, apiRoutes)
+// 일단 referer 없이 해보자
 app.use('/api', apiRoutes)
+
+app.use(express.static(path.join(__dirname, '../../frontend/dist')))
+
+// SPA 라우팅을 위해 모든 요청을 index.html로 리다이렉트
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'))
+})
 
 // 에러 핸들러
 app.use((err, req, res, next) => {
