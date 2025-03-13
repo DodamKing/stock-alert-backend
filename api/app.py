@@ -275,8 +275,8 @@ async def get_stock_data(
             raise HTTPException(status_code=404, detail=f"데이터를 찾을 수 없습니다: {symbol}")
 
         # 전고점 찾기
-        peak_value = df['High'].max()
-        peak_index = df['High'].idxmax()
+        peak_value = df['Close'].max()
+        peak_index = df['Close'].idxmax()
 
         # 현재 가격
         current_price = df['Close'].iloc[-1]
@@ -358,7 +358,12 @@ async def get_stock_data(
             "peak_price": float(peak_value),
             "peak_date": peak_index.strftime("%Y-%m-%d"),
             "days_analyzed": days,
-            "last_update": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            "last_update": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            # 차트용 시계열 데이터 추가
+            "chart_data": {
+                "dates": df.index.strftime("%Y-%m-%d").tolist(),
+                "prices": {"close": [round(float(x), 2) for x in df["Close"].tolist()]},
+            },
         }
 
         logger.info(f"{symbol} 데이터 반환: 현재가={current_price}, 고점={peak_value}")

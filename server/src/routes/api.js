@@ -198,6 +198,119 @@ router.get('/peak-drop', async (req, res, next) => {
     }
 })
 
+// 3. 차트용 시계열 데이터 제공 API
+router.get('/chart-data', async (req, res, next) => {
+    try {
+        const { symbol, market, days = 365 } = req.query
+
+        if (!symbol) {
+            return res.status(400).json({
+                status: 'error',
+                message: '주식 심볼이 필요합니다.',
+            })
+        }
+
+        // FastAPI의 /api/stock-data 엔드포인트에서 기본 및 차트 데이터 요청
+        let url = `/api/stock-data?symbol=${encodeURIComponent(symbol)}`
+        if (market) url += `&market=${encodeURIComponent(market)}`
+        if (days) url += `&days=${encodeURIComponent(days)}`
+
+        console.log(`차트 데이터 FastAPI 요청 URL: ${url}`)
+        const response = await fastApiClient.get(url)
+        const stockData = response.data
+
+        // 차트 데이터가 없으면 에러 반환
+        if (!stockData.chart_data) {
+            return res.status(404).json({
+                status: 'error',
+                message: '차트 데이터를 찾을 수 없습니다.',
+            })
+        }
+
+        // 차트용 데이터 가공
+        const chartData = {
+            symbol: stockData.symbol,
+            name: stockData.name || '알 수 없음',
+            market: stockData.market,
+            timeframe: {
+                days: stockData.days_analyzed,
+                start: stockData.chart_data.dates[0],
+                end: stockData.chart_data.dates[stockData.chart_data.dates.length - 1]
+            },
+            peakInfo: {
+                date: stockData.peak_date,
+                price: stockData.peak_price
+            },
+            series: [
+                {
+                    name: '종가',
+                    type: 'line',
+                    data: stockData.chart_data.dates.map((date, index) => ({
+                        date,
+                        value: stockData.chart_data.prices.close[index]
+                    }))
+                }
+            ],
+            // 추가 옵션 정보
+            options: {
+                highlightPeak: true, // 전고점 하이라이트 표시 여부
+                annotations: [
+                    {
+                        type: 'line',
+                        yValue: stockData.peak_price,
+                        label: '전고점',
+                        color: '#FF4560'
+                    },
+                    {
+                        type: 'line',
+                        yValue: stockData.current_price,
+                        label: '현재가',
+                        color: '#00E396'
+                    }
+                ]
+            }
+        }
+
+        // OHLC 데이터가 있다면 캔들차트용 데이터도 추가
+        if (stockData.chart_data.prices.open &&
+            stockData.chart_data.prices.high &&
+            stockData.chart_data.prices.low) {
+
+            chartData.series.push({
+                name: 'OHLC',
+                type: 'candlestick',
+                data: stockData.chart_data.dates.map((date, index) => ({
+                    date,
+                    open: stockData.chart_data.prices.open[index],
+                    high: stockData.chart_data.prices.high[index],
+                    low: stockData.chart_data.prices.low[index],
+                    close: stockData.chart_data.prices.close[index]
+                }))
+            })
+        }
+
+        // 거래량 데이터가 있다면 추가
+        if (stockData.chart_data.volume) {
+            chartData.series.push({
+                name: '거래량',
+                type: 'column',
+                data: stockData.chart_data.dates.map((date, index) => ({
+                    date,
+                    value: stockData.chart_data.volume[index]
+                }))
+            })
+        }
+
+        res.json({
+            status: 'success',
+            data: chartData,
+        })
+    } catch (error) {
+        console.error('차트 데이터 API 오류:', error)
+        next(error)
+    }
+})
+
 // 하락률의 심각성 판단 함수
 function determineDropSignificance(dropPercent) {
     if (dropPercent <= 0) {

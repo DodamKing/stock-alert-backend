@@ -1,3 +1,4 @@
+<!-- App.vue -->
 <template>
     <div class="app-container" :class="{ 'dark-mode': isDarkMode }">
         <header>
@@ -90,40 +91,16 @@
                     </div>
                 </div>
 
-                <div class="drop-container" :class="getDropClass(stockData.drop.percent)">
-                    <div class="drop-header">
-                        <div class="drop-title">전고점 대비 하락</div>
-                        <div class="drop-significance">{{ stockData.drop.significance }}</div>
-                    </div>
-                    <div class="drop-values">
-                        <div class="drop-percent">{{ stockData.drop.percent.toFixed(2) }}%</div>
-                        <div class="drop-value">{{ formatPrice(stockData.drop.value) }}</div>
-                    </div>
-                    <div class="drop-bar-container">
-                        <div class="drop-bar-bg"></div>
-                        <div class="drop-bar" :style="{ width: '0%' }" ref="dropBar"></div>
-                    </div>
-                    <div class="drop-analysis">{{ stockData.analysis }}</div>
+                <!-- 기간 선택기 -->
+                <PeriodSelector v-model="selectedPeriod" @period-changed="handlePeriodChange" />
 
-                    <div class="notify-container">
-                        <button @click="setNotification" class="notify-btn">
-                            <span v-if="hasNotification">알림 설정됨 ✓</span>
-                            <span v-else>이 종목 알림 받기</span>
-                        </button>
-                        <div v-if="showNotifyOptions" class="notify-options">
-                            <p>하락률이 다음 수준에 도달하면 알림 받기:</p>
-                            <select v-model="notifyThreshold">
-                                <option value="5">5% 이상</option>
-                                <option value="10">10% 이상</option>
-                                <option value="15">15% 이상</option>
-                                <option value="20">20% 이상</option>
-                                <option value="25">25% 이상</option>
-                                <option value="30">30% 이상</option>
-                            </select>
-                            <button @click="saveNotification" class="save-notify-btn">저장</button>
-                        </div>
-                    </div>
-                </div>
+                <!-- 차트 -->
+                <StockChart v-if="stockData && stockData.chartData" :chartData="stockData.chartData"
+                    :period="selectedPeriod" :peakDate="stockData.peakDate" :peakPrice="stockData.peakPrice" />
+
+                <!-- 전고점 대비 하락률 컴포넌트 사용 -->
+                <StockDropInfo :stockData="stockData" :hasNotification="hasNotification"
+                    @save-notification="handleSaveNotification" @remove-notification="handleRemoveNotification" />
 
                 <div v-if="stockData.searchResults && stockData.searchResults.otherMatches.length > 0"
                     class="other-matches">
@@ -169,14 +146,24 @@
 </template>
 
 <script>
+import StockDropInfo from '../components/StockDropInfo.vue';
+import PeriodSelector from '../components/PeriodSelector.vue'
+import StockChart from '../components/StockChart.vue';
+
 export default {
     name: 'App',
+    components: {
+        StockDropInfo,
+        PeriodSelector,
+        StockChart
+    },
     data() {
         return {
             searchQuery: '',
             searchResults: [],
             stockData: null,
             loading: false,
+            chartLoading: false,
             error: null,
             markets: {
                 kospi: true,
@@ -191,29 +178,16 @@ export default {
                 message: '',
                 type: 'info'
             },
-            notifyThreshold: 20,
-            showNotifyOptions: false,
             hasNotification: false,
-            notifiedStocks: []
+            notifiedStocks: [],
+            selectedPeriod: 365, // 기본값은 1년(365일)
+            currentSymbol: null,
+            currentMarket: null
         };
     },
     mounted() {
         // 사용자 설정 불러오기
         this.loadUserPreferences();
-
-        // dropBar 애니메이션 설정
-        this.$watch('stockData', (newVal) => {
-            if (newVal) {
-                // DOM 업데이트 후 실행
-                this.$nextTick(() => {
-                    if (this.$refs.dropBar) {
-                        setTimeout(() => {
-                            this.$refs.dropBar.style.width = Math.min(newVal.drop.percent, 100) + '%';
-                        }, 100);
-                    }
-                });
-            }
-        });
 
         // 검색 입력란에 포커스
         this.$nextTick(() => {
@@ -235,6 +209,7 @@ export default {
                 return;
             }
 
+            this.selectedPeriod = 365;
             this.loading = true;
             this.error = null;
             this.stockData = null;
@@ -284,42 +259,88 @@ export default {
             }
         },
 
-        async getStockData(symbol, market) {
-            this.loading = true;
+        async getStockData(symbol, market, isChart) {
+            // 새 종목 선택 시 기간 초기화 (이전 종목과 다른 경우만)
+            if (this.currentSymbol !== symbol || this.currentMarket !== market) {
+                this.selectedPeriod = 365; // 기본값으로 리셋
+            }
+            
+            if (!isChart) this.loading = true;
             this.error = null;
-            this.showNotifyOptions = false;
+
+            // 현재 선택된 종목 정보 저장
+            this.currentSymbol = symbol;
+            this.currentMarket = market;
 
             try {
-                const response = await fetch(
-                    `${this.apiBaseUrl}/peak-drop?symbol=${encodeURIComponent(symbol)}&market=${encodeURIComponent(market)}`
+                // 1. 전고점 데이터 호출
+                const peakResponse = await fetch(
+                    `${this.apiBaseUrl}/peak-drop?symbol=${encodeURIComponent(symbol)}&market=${encodeURIComponent(market)}&days=${this.selectedPeriod}`
                 );
 
-                if (!response.ok) {
+                if (!peakResponse.ok) {
                     throw new Error('데이터를 가져오는 중 오류가 발생했습니다.');
                 }
 
-                const data = await response.json();
+                const peakData = await peakResponse.json();
 
-                if (data.status === 'success') {
-                    this.stockData = data.data;
-
-                    // 저장된 알림 설정이 있는지 확인
-                    this.hasNotification = this.notifiedStocks.some(item =>
-                        item.symbol === this.stockData.symbol
-                    );
-                } else {
-                    throw new Error(data.message || '데이터를 가져오는 중 오류가 발생했습니다.');
+                if (peakData.status !== 'success') {
+                    throw new Error(peakData.message || '데이터를 가져오는 중 오류가 발생했습니다.');
                 }
+
+                // 2. 차트 데이터 호출
+                const chartResponse = await fetch(
+                    `${this.apiBaseUrl}/chart-data?symbol=${encodeURIComponent(symbol)}&market=${encodeURIComponent(market)}&days=${this.selectedPeriod}`
+                );
+
+                if (!chartResponse.ok) {
+                    throw new Error('차트 데이터를 가져오는 중 오류가 발생했습니다.');
+                }
+
+                const chartData = await chartResponse.json();
+
+                if (chartData.status !== 'success') {
+                    throw new Error(chartData.message || '차트 데이터를 가져오는 중 오류가 발생했습니다.');
+                }
+
+                // 3. 데이터 설정
+                this.stockData = peakData.data;
+                this.stockData.chartData = chartData.data; // 차트 데이터를 stockData에 추가
+
+                // 4. 전고점과 차트 데이터 일관성 확인 및 수정
+                if (this.stockData.chartData && this.stockData.chartData.peakInfo) {
+                    // 전고점 정보를 차트 데이터의 peakInfo로 덮어쓰기
+                    this.stockData.chartData.peakInfo = {
+                        date: this.stockData.peakDate,
+                        price: this.stockData.peakPrice
+                    };
+                }
+
+                // 저장된 알림 설정이 있는지 확인
+                this.hasNotification = this.notifiedStocks.some(item =>
+                    item.symbol === this.stockData.symbol
+                );
+
             } catch (err) {
+                console.error('데이터 로딩 오류:', err);
                 this.error = err.message;
             } finally {
                 this.loading = false;
             }
         },
 
+        // 기간이 변경되었을 때 데이터 다시 불러오기
+        async handlePeriodChange(days) {
+            this.selectedPeriod = days;
+            if (this.currentSymbol && this.currentMarket) {
+                // 변경된 기간으로 데이터 다시 가져오기
+                const isChart = true
+                await this.getStockData(this.currentSymbol, this.currentMarket, isChart);
+            }
+        },
+
         clearStockData() {
             this.stockData = null;
-            this.showNotifyOptions = false;
         },
 
         formatPrice(price) {
@@ -338,15 +359,6 @@ export default {
             if (!dateTimeStr) return '';
             const date = new Date(dateTimeStr);
             return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
-        },
-
-        getDropClass(dropPercent) {
-            if (dropPercent <= 0) return 'no-drop';
-            if (dropPercent < 5) return 'minor-drop';
-            if (dropPercent < 10) return 'small-drop';
-            if (dropPercent < 20) return 'medium-drop';
-            if (dropPercent < 30) return 'large-drop';
-            return 'severe-drop';
         },
 
         getMarketDisplayName(market) {
@@ -408,28 +420,13 @@ export default {
             }, duration);
         },
 
-        setNotification() {
-            if (this.hasNotification) {
-                // 이미 설정된 알림이 있으면 제거
-                this.notifiedStocks = this.notifiedStocks.filter(item =>
-                    item.symbol !== this.stockData.symbol
-                );
-                this.hasNotification = false;
-                localStorage.setItem('notifiedStocks', JSON.stringify(this.notifiedStocks));
-                this.showNotification('알림이 해제되었습니다.', 'info');
-            } else {
-                // 알림 설정 옵션 표시
-                this.showNotifyOptions = !this.showNotifyOptions;
-            }
-        },
-
-        saveNotification() {
+        handleSaveNotification(data) {
             // 현재 종목 정보와 임계값을 저장
             const notification = {
                 symbol: this.stockData.symbol,
                 name: this.stockData.name,
                 market: this.stockData.market,
-                threshold: this.notifyThreshold,
+                threshold: data.threshold,
                 currentDrop: this.stockData.drop.percent,
                 timestamp: new Date().toISOString()
             };
@@ -449,13 +446,22 @@ export default {
             localStorage.setItem('notifiedStocks', JSON.stringify(this.notifiedStocks));
 
             this.hasNotification = true;
-            this.showNotifyOptions = false;
             this.showNotification('알림이 설정되었습니다.', 'success');
 
             // 알림 권한 요청
             if (Notification && Notification.permission !== 'granted') {
                 Notification.requestPermission();
             }
+        },
+
+        handleRemoveNotification(symbol) {
+            // 알림 제거
+            this.notifiedStocks = this.notifiedStocks.filter(item =>
+                item.symbol !== symbol
+            );
+            this.hasNotification = false;
+            localStorage.setItem('notifiedStocks', JSON.stringify(this.notifiedStocks));
+            this.showNotification('알림이 해제되었습니다.', 'info');
         },
 
         checkNotifications() {
