@@ -6,6 +6,8 @@ from datetime import datetime, timedelta
 import logging
 import re
 
+from backtest_routes import router as backtest_router
+
 # 로깅 설정
 logging.basicConfig(
     level=logging.INFO,
@@ -19,6 +21,7 @@ app = FastAPI(
     version="1.0.0",
 )
 
+app.include_router(backtest_router)
 
 # ======== 모델 정의 ========
 class StockSymbol(BaseModel):

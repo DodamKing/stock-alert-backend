@@ -5,6 +5,7 @@ const path = require('path')
 const morgan = require('morgan')
 const config = require('./config/config')
 const apiRoutes = require('./routes/api')
+const backtestRoutes = require('./routes/backtest')
 
 const app = express()
 const PORT = config.port
@@ -28,6 +29,7 @@ app.use('/api', config.apiLimiter)
 // app.use('/api', refererCheckMiddleware, apiRoutes)
 // 일단 referer 없이 해보자
 app.use('/api', apiRoutes)
+app.use('/api/backtest', backtestRoutes)
 
 app.use(express.static(path.join(__dirname, '../../frontend/dist')))
 
