@@ -1,6 +1,6 @@
 <!-- StockDropInfo.vue -->
 <template>
-    <div class="drop-container" :class="getDropClass(stockData.drop.percent)">
+    <div class="stock-drop-info-component" :class="getDropClass(stockData.drop.percent)">
         <div class="drop-header">
             <div class="drop-title">전고점 대비 하락</div>
             <div class="drop-significance">{{ stockData.drop.significance }}</div>
@@ -52,7 +52,8 @@ export default {
     data() {
         return {
             showNotifyOptions: false,
-            notifyThreshold: 20
+            notifyThreshold: 20,
+            isMobile: false
         };
     },
     mounted() {
@@ -64,6 +65,13 @@ export default {
                 }, 100);
             }
         });
+
+        // 디바이스 타입 확인
+        this.checkDeviceType();
+        window.addEventListener('resize', this.checkDeviceType);
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.checkDeviceType);
     },
     methods: {
         formatPrice(price) {
@@ -96,7 +104,355 @@ export default {
             });
 
             this.showNotifyOptions = false;
+        },
+        checkDeviceType() {
+            this.isMobile = window.innerWidth <= 768;
         }
     }
 };
 </script>
+
+<style scoped>
+.stock-drop-info-component {
+    background-color: var(--background-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.drop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.drop-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.drop-significance {
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.drop-values {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    align-items: flex-end;
+}
+
+.drop-percent {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.drop-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.drop-bar-container {
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.drop-bar-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.1;
+}
+
+.drop-bar {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.drop-analysis {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--card-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.notify-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--card-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.notify-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    width: 100%;
+    min-height: 44px;
+    /* 모바일 터치 최적화 */
+}
+
+.notify-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.notify-options {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.notify-options p {
+    margin-bottom: 10px;
+}
+
+.notify-options select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    height: 44px;
+    /* 모바일 터치 최적화 */
+}
+
+.save-notify-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    width: 100%;
+    min-height: 44px;
+    /* 모바일 터치 최적화 */
+}
+
+.save-notify-btn:hover {
+    background-color: #ea580c;
+}
+
+/* 드롭 클래스 스타일 */
+.no-drop {
+    border-left: 5px solid var(--no-drop-color);
+}
+
+.no-drop .drop-significance,
+.no-drop .drop-bar {
+    background-color: var(--no-drop-color);
+}
+
+.no-drop .drop-bar-bg {
+    background-color: var(--no-drop-color);
+}
+
+.minor-drop {
+    border-left: 5px solid var(--minor-drop-color);
+}
+
+.minor-drop .drop-significance,
+.minor-drop .drop-bar {
+    background-color: var(--minor-drop-color);
+}
+
+.minor-drop .drop-bar-bg {
+    background-color: var(--minor-drop-color);
+}
+
+.small-drop {
+    border-left: 5px solid var(--small-drop-color);
+}
+
+.small-drop .drop-significance,
+.small-drop .drop-bar {
+    background-color: var(--small-drop-color);
+}
+
+.small-drop .drop-bar-bg {
+    background-color: var(--small-drop-color);
+}
+
+.medium-drop {
+    border-left: 5px solid var(--medium-drop-color);
+}
+
+.medium-drop .drop-significance,
+.medium-drop .drop-bar {
+    background-color: var(--medium-drop-color);
+}
+
+.medium-drop .drop-bar-bg {
+    background-color: var(--medium-drop-color);
+}
+
+.large-drop {
+    border-left: 5px solid var(--large-drop-color);
+}
+
+.large-drop .drop-significance,
+.large-drop .drop-bar {
+    background-color: var(--large-drop-color);
+}
+
+.large-drop .drop-bar-bg {
+    background-color: var(--large-drop-color);
+}
+
+.severe-drop {
+    border-left: 5px solid var(--severe-drop-color);
+}
+
+.severe-drop .drop-significance,
+.severe-drop .drop-bar {
+    background-color: var(--severe-drop-color);
+}
+
+.severe-drop .drop-bar-bg {
+    background-color: var(--severe-drop-color);
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+    .stock-drop-info-component {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .drop-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .drop-title {
+        font-size: 1rem;
+    }
+
+    .drop-significance {
+        padding: 4px 10px;
+        font-size: 0.8rem;
+    }
+
+    .drop-values {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .drop-percent {
+        font-size: 1.8rem;
+    }
+
+    .drop-value {
+        font-size: 1rem;
+    }
+
+    .drop-analysis {
+        font-size: 0.95rem;
+        padding: 12px;
+        margin-top: 15px;
+    }
+
+    .notify-container {
+        padding: 12px;
+        margin-top: 15px;
+    }
+
+    .notify-btn,
+    .save-notify-btn {
+        padding: 10px;
+    }
+
+    .notify-options {
+        padding: 12px;
+    }
+
+    .notify-options p {
+        font-size: 0.9rem;
+    }
+
+    /* 터치 피드백 개선 */
+    .notify-btn:active,
+    .save-notify-btn:active {
+        opacity: 0.8;
+        transform: scale(0.98);
+    }
+}
+
+/* 작은 모바일 화면 */
+@media (max-width: 480px) {
+    .stock-drop-info-component {
+        padding: 12px;
+    }
+
+    .drop-percent {
+        font-size: 1.6rem;
+    }
+
+    .drop-analysis {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .notify-container,
+    .notify-options {
+        padding: 10px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 모바일 터치 최적화 - hover 대신 active 사용 */
+@media (hover: none) {
+
+    .notify-btn:hover,
+    .save-notify-btn:hover {
+        transform: none;
+    }
+}
+</style>

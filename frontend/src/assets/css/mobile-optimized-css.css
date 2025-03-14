@@ -1,0 +1,337 @@
+/* 모바일 최적화를 위한 추가 CSS */
+
+/* 기본 뷰포트 설정 */
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
+/* 터치 최적화 */
+* {
+    touch-action: manipulation;
+    /* 더블 탭 줌 방지 */
+}
+
+button,
+.stock-item,
+.back-button,
+.theme-toggle,
+.notify-btn,
+.save-notify-btn {
+    min-height: 44px;
+    /* 모바일 터치 타겟 최소 크기 */
+}
+
+/* 폰트 최적화 */
+html {
+    -webkit-text-size-adjust: 100%;
+    /* iOS 텍스트 자동 확대 방지 */
+}
+
+/* 필터 섹션 접을 수 있게 수정 */
+.filter-section {
+    width: 100%;
+}
+
+.filter-toggle {
+    display: none;
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 필터 옵션 레이아웃 */
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* 기본 마켓 필터 (데스크톱) */
+.market-filter {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* 기간 선택기 개선 */
+.period-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.period-selector button {
+    flex: 1;
+    padding: 10px 5px;
+    border-radius: 6px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all 0.3s;
+    min-width: 60px;
+}
+
+.period-selector button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* 모바일 터치 피드백 개선 */
+@media (hover: none) {
+    .stock-item:active {
+        background-color: var(--hover-color);
+    }
+
+    button:active,
+    .back-button:active,
+    .filter-toggle:active {
+        opacity: 0.7;
+    }
+}
+
+/* 데스크톱에서는 항상 표시 */
+@media (min-width: 769px) {
+    .market-filter {
+        display: flex !important;
+        /* !important로 v-show 우선순위 재정의 */
+    }
+
+    .filter-options {
+        display: flex;
+    }
+
+    .save-btn {
+        margin-left: auto;
+        /* 데스크톱에서 오른쪽 정렬 */
+    }
+}
+
+/* 768px 이하 화면 (태블릿 및 모바일) */
+@media (max-width: 768px) {
+
+    /* 필터 토글 표시 */
+    .filter-toggle {
+        display: flex;
+    }
+
+    /* 검색창 크기 최적화 */
+    .search-box input {
+        height: 50px;
+        /* 더 큰 터치 영역 */
+        font-size: 16px;
+        /* iOS에서 자동 확대 방지 */
+    }
+
+    .market-filter {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* 검색 및 필터 레이아웃 개선 */
+    .filter-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .save-btn {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* 키보드 입력시 레이아웃 최적화 */
+    .search-container {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        margin-bottom: 10px;
+    }
+
+    /* 검색 결과 아이템 개선 */
+    .stock-item {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "name market"
+            "symbol market";
+        align-items: center;
+    }
+
+    .stock-name {
+        grid-area: name;
+        margin-bottom: 2px;
+    }
+
+    .stock-symbol {
+        grid-area: symbol;
+        margin-bottom: 0;
+    }
+
+    .stock-market {
+        grid-area: market;
+    }
+
+    /* 푸터 최적화 */
+    footer {
+        position: static;
+        /* 고정 푸터는 모바일에서 스크롤 공간 차지 */
+        margin-top: 30px;
+        padding-bottom: env(safe-area-inset-bottom, 10px);
+        /* iOS 노치 영역 대응 */
+    }
+
+    .app-container {
+        padding-bottom: 10px;
+    }
+
+    /* 주식 상세 정보 개선 */
+    .stock-header {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    /* 알림 토스트 위치 개선 */
+    .notification-toast {
+        bottom: env(safe-area-inset-bottom, 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 280px;
+        max-width: 90%;
+    }
+
+    /* 애니메이션 최적화 */
+    .stock-item,
+    .fade-enter-active,
+    .fade-leave-active,
+    .slide-up-enter-active,
+    .slide-up-leave-active {
+        transition-duration: 0.3s;
+        /* 모바일에서 더 빠른 애니메이션 */
+    }
+}
+
+/* 480px 이하 화면 (작은 모바일) */
+@media (max-width: 480px) {
+
+    /* 헤더 영역 최적화 */
+    header {
+        margin-bottom: 15px;
+    }
+
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+    }
+
+    /* 콘텐츠 패딩 최적화 */
+    .search-container,
+    .stock-detail,
+    .search-results {
+        padding: 12px 8px;
+        border-radius: 8px;
+    }
+
+    /* 그리드 레이아웃 조정 */
+    .filter-options {
+        grid-template-columns: 1fr;
+        /* 매우 작은 화면에서는 한 줄에 하나 */
+    }
+
+    /* 주식 데이터 레이아웃 개선 */
+    .price-container>div {
+        padding: 10px;
+    }
+
+    .drop-percent {
+        font-size: 1.6rem;
+    }
+
+    .value {
+        font-size: 1.3rem;
+    }
+
+    /* 기간 선택기 최적화 */
+    .period-selector button {
+        font-size: 0.8rem;
+        padding: 8px 3px;
+    }
+}
+
+/* 초소형 모바일 화면 (iPhone SE 등) */
+@media (max-width: 320px) {
+    body {
+        font-size: 13px;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+    }
+
+    .app-container {
+        padding: 5px;
+    }
+
+    .drop-percent {
+        font-size: 1.4rem;
+    }
+}
+
+/* 가로 모드 최적화 */
+@media (max-height: 500px) and (orientation: landscape) {
+    .app-container {
+        padding: 5px 10px;
+    }
+
+    header {
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        display: none;
+        /* 공간 확보를 위해 부제목 숨김 */
+    }
+
+    /* 레이아웃 최적화 */
+    .price-container {
+        flex-direction: row;
+        /* 가로 모드에서는 가로 배치 */
+    }
+
+    .results-grid {
+        grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    }
+}
+
+/* 다크 모드 추가 최적화 */
+.dark-mode .filter-toggle {
+    background-color: var(--card-color);
+}
+
+/* 최신 iOS 노치 대응 */
+@supports (padding-top: env(safe-area-inset-top)) {
+    .app-container {
+        padding-left: env(safe-area-inset-left, 10px);
+        padding-right: env(safe-area-inset-right, 10px);
+    }
+}

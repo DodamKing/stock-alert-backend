@@ -1,4 +1,4 @@
-<!-- App.vue -->
+<!-- MainView.vue -->
 <template>
     <div class="app-container" :class="{ 'dark-mode': isDarkMode }">
         <header>
@@ -27,13 +27,25 @@
                     </button>
                 </div>
 
-                <div class="market-filter">
-                    <span>시장 필터:</span>
-                    <label><input type="checkbox" v-model="markets.kospi"> 코스피</label>
-                    <label><input type="checkbox" v-model="markets.kosdaq"> 코스닥</label>
-                    <label><input type="checkbox" v-model="markets.us"> 미국</label>
-                    <label><input type="checkbox" v-model="markets.etf"> ETF</label>
-                    <button @click="saveUserPreferences" class="save-btn">저장</button>
+                <!-- 필터 섹션 수정 -->
+                <div class="filter-section">
+                    <!-- 모바일에서만 표시되는 토글 버튼 -->
+                    <div v-if="isMobile" class="filter-toggle" @click="toggleFilterVisibility">
+                        <span>시장 필터</span>
+                        <span>{{ isFilterVisible ? '▲' : '▼' }}</span>
+                    </div>
+
+                    <!-- v-show로 모바일에서만 토글, 데스크톱에서는 항상 표시 -->
+                    <div class="market-filter" v-show="!isMobile || isFilterVisible">
+                        <span>시장 필터:</span>
+                        <div class="filter-options">
+                            <label><input type="checkbox" v-model="markets.kospi"> 코스피</label>
+                            <label><input type="checkbox" v-model="markets.kosdaq"> 코스닥</label>
+                            <label><input type="checkbox" v-model="markets.us"> 미국</label>
+                            <label><input type="checkbox" v-model="markets.etf"> ETF</label>
+                        </div>
+                        <button @click="saveUserPreferences" class="save-btn">저장</button>
+                    </div>
                 </div>
             </div>
         </transition>
@@ -182,7 +194,9 @@ export default {
             notifiedStocks: [],
             selectedPeriod: 365, // 기본값은 1년(365일)
             currentSymbol: null,
-            currentMarket: null
+            currentMarket: null,
+            isFilterVisible: false,
+            isMobile: false, 
         };
     },
     mounted() {
@@ -195,6 +209,10 @@ export default {
                 this.$refs.searchInput.focus();
             }
         });
+
+        // 모바일 감지
+        this.checkDeviceType();
+        window.addEventListener('resize', this.checkDeviceType);
 
         // 저장된 알림 목록 가져오기
         const savedNotifications = localStorage.getItem('notifiedStocks');
@@ -480,11 +498,36 @@ export default {
                     }
                 }
             });
+        },
+
+        // 필터 영역 토글
+        toggleFilterVisibility() {
+            this.isFilterVisible = !this.isFilterVisible;
+        },
+
+        // 디바이스 타입 체크
+        checkDeviceType() {
+            const wasMobile = this.isMobile;
+            this.isMobile = window.innerWidth <= 768;
+
+            // 모바일에서 데스크톱으로 전환 시 필터 항상 표시
+            if (wasMobile && !this.isMobile) {
+                this.isFilterVisible = true;
+            }
+            // 처음 로드 시 모바일이면 필터 숨기기, 데스크톱이면 표시
+            else if (!wasMobile && this.isMobile) {
+                this.isFilterVisible = false;
+            }
         }
+    },
+
+    beforeUnmount() {
+        window.removeEventListener('resize', this.checkDeviceType);
     }
 };
 </script>
 
 <style>
-@import '../assets/css/mainView.css'
+@import '../assets/css/mainView.css';
+@import '../assets/css/mobile-optimized-css.css';
 </style>

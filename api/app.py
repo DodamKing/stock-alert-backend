@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 from datetime import datetime, timedelta
 import logging
+import re
 
 # 로깅 설정
 logging.basicConfig(
@@ -125,7 +126,7 @@ async def search_stocks(
     """
     try:
         logger.info(f"주식 검색 요청: 검색어={query}, 시장={markets}")
-        
+
         # 검색할 시장 목록 설정
         markets_to_search = []
         if markets:
@@ -135,9 +136,9 @@ async def search_stocks(
         else:
             # 기본 시장 목록 (DOW 제외)
             markets_to_search = ["KOSPI", "KOSDAQ", "NASDAQ", "NYSE", "AMEX", "ETF/KR", "ETF/US"]
-        
+
         result = []
-        
+
         # 각 시장별 검색
         for market_name in markets_to_search:
             try:
@@ -146,30 +147,30 @@ async def search_stocks(
                     try:
                         # ETF 목록 가져오기
                         etf_df = fdr.StockListing(market_name)
-                        
+
                         # 컬럼 확인
                         etf_columns = etf_df.columns.tolist()
                         logger.info(f"{market_name} 컬럼: {etf_columns}")
-                        
+
                         # ETF 목록에서 적절한 티커와 이름 컬럼 찾기
                         ticker_col = next((col for col in ["티커", "Symbol", "Code", "code", "symbol"] if col in etf_columns), None)
                         name_col = next((col for col in ["종목명", "Name", "name"] if col in etf_columns), None)
-                        
+
                         if ticker_col and name_col:
                             # 검색어로 필터링
                             query_lower = query.lower()
-                            
+
                             for _, row in etf_df.iterrows():
                                 # 티커에서 검색
                                 ticker_match = False
                                 if str(row[ticker_col]).lower().find(query_lower) >= 0:
                                     ticker_match = True
-                                
+
                                 # 이름에서 검색
                                 name_match = False
                                 if str(row[name_col]).lower().find(query_lower) >= 0:
                                     name_match = True
-                                
+
                                 # 티커 또는 이름이 일치하면 결과에 추가
                                 if ticker_match or name_match:
                                     item = {
@@ -183,34 +184,34 @@ async def search_stocks(
                 else:
                     # 일반 주식 목록 가져오기
                     df = fdr.StockListing(market_name)
-                    
+
                     # 컬럼 이름 확인
                     columns = df.columns.tolist()
-                    
+
                     # 가능한 심볼과 이름 컬럼 찾기
                     symbol_col = next((col for col in ["Symbol", "Code", "code", "symbol"] if col in columns), None)
                     name_cols = [col for col in ["Name", "Name(KOR)", "korean_name", "name"] if col in columns]
-                    
+
                     if not symbol_col or not name_cols:
                         logger.warning(f"시장 {market_name}에서 적절한 컬럼을 찾을 수 없습니다. 컬럼: {columns}")
                         continue
-                    
+
                     # 검색어로 필터링 (대소문자 구분 없이)
                     query_lower = query.lower()
-                    
+
                     for _, row in df.iterrows():
                         # 심볼에서 검색
                         symbol_match = False
                         if symbol_col and str(row[symbol_col]).lower().find(query_lower) >= 0:
                             symbol_match = True
-                        
+
                         # 이름에서 검색
                         name_match = False
                         for name_col in name_cols:
                             if name_col in row.index and str(row[name_col]).lower().find(query_lower) >= 0:
                                 name_match = True
                                 break
-                        
+
                         # 심볼 또는 이름이 일치하면 결과에 추가
                         if symbol_match or name_match:
                             item = {
@@ -223,33 +224,36 @@ async def search_stocks(
                 # 특정 시장 검색 중 오류가 발생하면 로그만 남기고 계속 진행
                 logger.error(f"시장 {market_name} 검색 중 오류 발생: {str(e)}")
                 continue
-        
+
         # 결과가 너무 많으면 상위 N개만 반환
         if len(result) > limit:
             result = result[:limit]
-            
+
         logger.info(f"검색 결과: {len(result)}개 항목 찾음")
         return {"query": query, "results": result, "count": len(result)}
-    
+
     except Exception as e:
         import traceback
         error_detail = str(e) + "\n" + traceback.format_exc()
         logger.error(f"검색 중 오류 발생: {error_detail}")
         raise HTTPException(status_code=500, detail=f"검색 중 오류 발생: {str(e)}")
 
+
 @app.get("/api/stock-data")
 async def get_stock_data(
     symbol: str = Query(..., description="주식 심볼"),
-    market: Optional[str] = Query(None, description="시장 (KOSPI, KOSDAQ, NASDAQ, NYSE, ETF/KR 등) - 선택사항"),
-    days: int = Query(365, description="분석할 기간(일)")
+    market: Optional[str] = Query(
+        None, description="시장 (KOSPI, KOSDAQ, NASDAQ, NYSE, ETF/KR 등) - 선택사항"
+    ),
+    days: int = Query(365, description="분석할 기간(일)"),
 ):
     """
     특정 종목의 데이터와 전고점 정보를 반환합니다.
-    
+
     - **symbol**: 종목 코드 (예: '005930', 'AAPL')
     - **market**: 시장 (KOSPI, KOSDAQ, NASDAQ, NYSE, ETF/KR 등) - 선택사항
     - **days**: 분석할 기간(일) (기본: 365일)
-    
+
     전고점, 현재가, 날짜 등의 데이터를 반환합니다.
     시장 정보를 제공하지 않으면 자동으로 심볼에 맞는 시장을 찾습니다.
     """
@@ -265,89 +269,179 @@ async def get_stock_data(
 
         # DataReader는 모든 종류(일반 주식, ETF)에 동일하게 사용
         try:
-            df = fdr.DataReader(symbol, start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d"))
+            df = fdr.DataReader(
+                symbol, start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d")
+            )
         except Exception as e:
             logger.error(f"주식 데이터 조회 실패: {str(e)}")
-            raise HTTPException(status_code=404, detail=f"데이터를 찾을 수 없습니다: {symbol}")
+            raise HTTPException(
+                status_code=404, detail=f"데이터를 찾을 수 없습니다: {symbol}"
+            )
 
         if df.empty:
             logger.warning(f"심볼 {symbol}에 대한 데이터를 찾을 수 없습니다.")
-            raise HTTPException(status_code=404, detail=f"데이터를 찾을 수 없습니다: {symbol}")
+            raise HTTPException(
+                status_code=404, detail=f"데이터를 찾을 수 없습니다: {symbol}"
+            )
 
         # 전고점 찾기
-        peak_value = df['Close'].max()
-        peak_index = df['Close'].idxmax()
+        peak_value = df["Close"].max()
+        peak_index = df["Close"].idxmax()
 
         # 현재 가격
-        current_price = df['Close'].iloc[-1]
+        current_price = df["Close"].iloc[-1]
 
         # 종목 이름과 시장 정보 찾기
         stock_name = None
 
         # 시장 정보가 없는 경우 자동으로 찾기 시도
         if not determined_market:
+            # 심볼 패턴에 따라 검색 순서 최적화
+            if symbol.isdigit() or (len(symbol) == 6 and symbol.isalnum()):
+                # 숫자만 있거나 국내 종목 코드 패턴(6자리)인 경우 - 국내 시장 우선
+                potential_markets = [
+                    "KOSPI",
+                    "KOSDAQ",
+                    "ETF/KR",
+                    "NASDAQ",
+                    "NYSE",
+                    "AMEX",
+                    "ETF/US",
+                ]
+                logger.info(f"국내 종목 코드 패턴 감지: {symbol} - 국내 시장 우선 검색")
+            elif re.match(r"^[A-Z]+$", symbol):
+                # 대문자 알파벳만 있는 경우 - 미국 시장 우선
+                potential_markets = [
+                    "NASDAQ",
+                    "NYSE",
+                    "AMEX",
+                    "ETF/US",
+                    "KOSPI",
+                    "KOSDAQ",
+                    "ETF/KR",
+                ]
+                logger.info(f"미국 종목 코드 패턴 감지: {symbol} - 미국 시장 우선 검색")
+            else:
+                # 그 외 패턴 - 모든 시장 검색
+                potential_markets = [
+                    "KOSPI",
+                    "KOSDAQ",
+                    "ETF/KR",
+                    "NASDAQ",
+                    "NYSE",
+                    "AMEX",
+                    "ETF/US",
+                ]
+                logger.info(f"일반 패턴 감지: {symbol} - 일반 순서로 검색")
+
             # 각 시장에서 심볼 찾기 시도
-            for potential_market in ["KOSPI", "KOSDAQ", "ETF/KR", "ETF/US", "NASDAQ", "NYSE", "AMEX"]:
+            for potential_market in potential_markets:
                 try:
                     market_list = fdr.StockListing(potential_market)
 
                     # 시장 목록에서 적절한 심볼 컬럼 찾기
                     market_columns = market_list.columns.tolist()
-                    symbol_col = next((col for col in ["Symbol", "Code", "code", "symbol", "티커"] if col in market_columns), None)
+                    symbol_col = next(
+                        (
+                            col
+                            for col in ["Symbol", "Code", "code", "symbol", "티커"]
+                            if col in market_columns
+                        ),
+                        None,
+                    )
 
                     if symbol_col:
                         # 심볼로 종목 찾기
                         matching = market_list[market_list[symbol_col] == symbol]
                         if not matching.empty:
                             determined_market = potential_market
+                            # 종목명 컬럼 찾기
+                            name_col = next(
+                                (
+                                    col
+                                    for col in [
+                                        "Name",
+                                        "Name(KOR)",
+                                        "korean_name",
+                                        "name",
+                                        "종목명",
+                                    ]
+                                    if col in market_columns
+                                ),
+                                None,
+                            )
+                            if name_col:
+                                stock_name = matching.iloc[0][name_col]
                             break
                 except Exception as e:
-                    logger.warning(f"{potential_market} 시장에서 심볼 검색 중 오류: {str(e)}")
+                    logger.warning(
+                        f"{potential_market} 시장에서 심볼 검색 중 오류: {str(e)}"
+                    )
                     continue
 
         logger.info(f"결정된 시장: {determined_market}")
 
-        # 종목 이름 가져오기
-        try:
-            if determined_market in ["ETF/KR", "ETF/US"]:
-                # ETF 목록에서 종목명 찾기
-                etf_list = fdr.StockListing(determined_market)
+        # 종목 이름이 찾아지지 않았을 경우 다시 시도
+        if not stock_name and determined_market:
+            try:
+                if determined_market in ["ETF/KR", "ETF/US"]:
+                    # ETF 목록에서 종목명 찾기
+                    etf_list = fdr.StockListing(determined_market)
 
-                # ETF 목록에서 적절한 티커와 이름 컬럼 찾기
-                etf_columns = etf_list.columns.tolist()
-                ticker_col = next((col for col in ["티커", "Symbol", "Code", "code", "symbol"] if col in etf_columns), None)
-                name_col = next((col for col in ["종목명", "Name", "name"] if col in etf_columns), None)
+                    # ETF 목록에서 적절한 티커와 이름 컬럼 찾기
+                    etf_columns = etf_list.columns.tolist()
+                    ticker_col = next(
+                        (
+                            col
+                            for col in ["티커", "Symbol", "Code", "code", "symbol"]
+                            if col in etf_columns
+                        ),
+                        None,
+                    )
+                    name_col = next(
+                        (
+                            col
+                            for col in ["종목명", "Name", "name"]
+                            if col in etf_columns
+                        ),
+                        None,
+                    )
 
-                if ticker_col and name_col:
-                    # 티커로 ETF 찾기
-                    matching_etf = etf_list[etf_list[ticker_col] == symbol]
-                    if not matching_etf.empty:
-                        stock_name = matching_etf.iloc[0][name_col]
-            else:
-                # 일반 주식 목록에서 종목명 찾기
-                potential_markets = [determined_market] if determined_market else ["KOSPI", "KOSDAQ", "NASDAQ", "NYSE", "AMEX"]
-                for potential_market in potential_markets:
-                    try:
-                        stock_list = fdr.StockListing(potential_market)
+                    if ticker_col and name_col:
+                        # 티커로 ETF 찾기
+                        matching_etf = etf_list[etf_list[ticker_col] == symbol]
+                        if not matching_etf.empty:
+                            stock_name = matching_etf.iloc[0][name_col]
+                else:
+                    # 일반 주식 목록에서 종목명 찾기
+                    stock_list = fdr.StockListing(determined_market)
 
-                        # 주식 목록에서 적절한 심볼과 이름 컬럼 찾기
-                        stock_columns = stock_list.columns.tolist()
-                        symbol_col = next((col for col in ["Symbol", "Code", "code", "symbol"] if col in stock_columns), None)
-                        name_col = next((col for col in ["Name", "Name(KOR)", "korean_name", "name"] if col in stock_columns), None)
+                    # 주식 목록에서 적절한 심볼과 이름 컬럼 찾기
+                    stock_columns = stock_list.columns.tolist()
+                    symbol_col = next(
+                        (
+                            col
+                            for col in ["Symbol", "Code", "code", "symbol"]
+                            if col in stock_columns
+                        ),
+                        None,
+                    )
+                    name_col = next(
+                        (
+                            col
+                            for col in ["Name", "Name(KOR)", "korean_name", "name"]
+                            if col in stock_columns
+                        ),
+                        None,
+                    )
 
-                        if symbol_col and name_col:
-                            # 심볼로 주식 찾기
-                            matching_stock = stock_list[stock_list[symbol_col] == symbol]
-                            if not matching_stock.empty:
-                                stock_name = matching_stock.iloc[0][name_col]
-                                if not determined_market:
-                                    determined_market = potential_market
-                                break
-                    except Exception as e:
-                        logger.warning(f"{potential_market} 시장에서 종목명 조회 실패: {str(e)}")
-                        continue
-        except Exception as e:
-            logger.warning(f"종목명 조회 실패: {str(e)}")
+                    if symbol_col and name_col:
+                        # 심볼로 주식 찾기
+                        matching_stock = stock_list[stock_list[symbol_col] == symbol]
+                        if not matching_stock.empty:
+                            stock_name = matching_stock.iloc[0][name_col]
+            except Exception as e:
+                logger.warning(f"종목명 조회 실패: {str(e)}")
 
         # 응답 데이터 구성
         response = {
@@ -374,9 +468,12 @@ async def get_stock_data(
         raise
     except Exception as e:
         import traceback
+
         error_detail = str(e) + "\n" + traceback.format_exc()
         logger.error(f"주식 데이터 조회 중 오류 발생: {error_detail}")
-        raise HTTPException(status_code=500, detail=f"데이터 조회 중 오류 발생: {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"데이터 조회 중 오류 발생: {str(e)}"
+        )
 
 
 @app.get("/api/market-symbols/{market}", response_model=StocksListResponse)

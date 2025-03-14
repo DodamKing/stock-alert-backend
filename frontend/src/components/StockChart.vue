@@ -1,6 +1,6 @@
 <!-- StockChart.vue -->
 <template>
-    <div class="stock-chart-container">
+    <div class="stock-chart-component">
         <div class="chart-header">
             <h3>가격 차트</h3>
             <div class="chart-type-selector">
@@ -67,11 +67,12 @@ const props = defineProps({
 });
 
 // 상태 변수들
-const loading = ref(false)
+const loading = ref(false);
 const error = ref(null);
 const selectedChartType = ref('line');
 const chartRef = ref(null);
 const chart = ref(null);
+const isMobile = ref(false);
 
 // 차트 타입 옵션
 const availableChartTypes = computed(() => {
@@ -80,6 +81,58 @@ const availableChartTypes = computed(() => {
         { id: 'area', label: '영역' }
     ];
 });
+
+// 모바일 여부 감지 함수
+const checkDeviceType = () => {
+    isMobile.value = window.innerWidth <= 768;
+    if (chart.value) {
+        updateChartForMobile();
+    }
+};
+
+// 모바일 환경에 맞게 차트 옵션 조정
+const updateChartForMobile = () => {
+    if (!chart.value) return;
+
+    const mobileOptions = isMobile.value ? {
+        chart: {
+            toolbar: {
+                tools: {
+                    // 모바일에서는 핵심 도구만 표시
+                    download: true,
+                    zoom: true,
+                    reset: true,
+                    // 작은 화면에서는 불필요한 도구 숨김
+                    selection: false,
+                    zoomin: false,
+                    zoomout: false,
+                    pan: false
+                }
+            }
+        },
+        // 모바일에서 X축 라벨 간소화
+        xaxis: {
+            labels: {
+                datetimeUTC: false,
+                format: 'yy-MM',
+                rotate: 0,
+                style: {
+                    fontSize: '10px'
+                }
+            }
+        },
+        // 모바일에서 Y축 라벨 간소화
+        yaxis: {
+            labels: {
+                style: {
+                    fontSize: '10px'
+                }
+            }
+        }
+    } : {};
+
+    chart.value.updateOptions(mobileOptions);
+};
 
 // 차트 옵션 계산
 const chartOptions = computed(() => {
@@ -90,24 +143,25 @@ const chartOptions = computed(() => {
     const startDate = new Date();
     startDate.setDate(startDate.getDate() - props.period);
 
-    return {
+    const baseOptions = {
         chart: {
             type: selectedChartType.value,
-            height: 350,
+            height: isMobile.value ? 280 : 350, // 모바일에서 높이 감소
             toolbar: {
                 show: true,
                 tools: {
                     download: true,
-                    selection: true,
+                    selection: !isMobile.value,
                     zoom: true,
-                    zoomin: true,
-                    zoomout: true,
-                    pan: true,
+                    zoomin: !isMobile.value,
+                    zoomout: !isMobile.value,
+                    pan: !isMobile.value,
                     reset: true
                 }
             },
             animations: {
-                enabled: true
+                enabled: true,
+                speed: isMobile.value ? 300 : 800 // 모바일에서 애니메이션 속도 향상
             },
             background: 'transparent'
         },
@@ -133,7 +187,10 @@ const chartOptions = computed(() => {
             max: endDate.getTime(),
             labels: {
                 datetimeUTC: false,
-                format: 'yy-MM-dd'
+                format: isMobile.value ? 'yy-MM' : 'yy-MM-dd', // 모바일에서 간결한 포맷
+                style: {
+                    fontSize: isMobile.value ? '10px' : '12px'
+                }
             },
             tooltip: {
                 enabled: true
@@ -145,10 +202,13 @@ const chartOptions = computed(() => {
                     return new Intl.NumberFormat('ko-KR', {
                         maximumFractionDigits: 0
                     }).format(value);
+                },
+                style: {
+                    fontSize: isMobile.value ? '10px' : '12px'
                 }
             },
             title: {
-                text: '가격'
+                text: isMobile.value ? '' : '가격' // 모바일에서는 타이틀 숨김
             }
         },
         tooltip: {
@@ -172,7 +232,8 @@ const chartOptions = computed(() => {
                         borderColor: '#FF4560',
                         style: {
                             color: '#fff',
-                            background: '#FF4560'
+                            background: '#FF4560',
+                            fontSize: isMobile.value ? '10px' : '12px'
                         },
                         text: '전고점'
                     }
@@ -193,9 +254,16 @@ const chartOptions = computed(() => {
         colors: ['#2E93fA', '#66DA26', '#546E7A', '#FF4560'],
         legend: {
             show: true,
-            position: 'top'
+            position: 'top',
+            fontSize: isMobile.value ? '10px' : '12px',
+            itemMargin: {
+                horizontal: 10,
+                vertical: 0
+            }
         }
     };
+
+    return baseOptions;
 });
 
 // 차트 시리즈 데이터 계산
@@ -222,7 +290,7 @@ const chartSeries = computed(() => {
 const updateChart = () => {
     if (!chartRef.value || !props.chartData) return;
 
-    loading.value = true
+    loading.value = true;
 
     const options = {
         ...chartOptions.value,
@@ -238,7 +306,7 @@ const updateChart = () => {
             chart.value.render();
         });
     }
-    loading.value = false
+    loading.value = false;
 };
 
 // 차트 타입 선택 함수
@@ -256,6 +324,7 @@ const formatDate = (dateStr) => {
 
 // 차트 리사이즈 핸들러
 const handleResize = () => {
+    checkDeviceType();
     if (chart.value) {
         chart.value.render();
     }
@@ -264,11 +333,11 @@ const handleResize = () => {
 watch(() => props.chartData, (newData) => {
     if (newData) {
         error.value = null;
-        
+
         nextTick(() => {
             updateChart();
         });
-    } 
+    }
 }, { deep: true, immediate: true });
 
 watch(() => props.peakPrice, (newPrice) => {
@@ -283,7 +352,8 @@ watch(() => props.peakPrice, (newPrice) => {
                         borderColor: '#FF4560',
                         style: {
                             color: '#fff',
-                            background: '#FF4560'
+                            background: '#FF4560',
+                            fontSize: isMobile.value ? '10px' : '12px'
                         },
                         text: '전고점'
                     }
@@ -295,6 +365,7 @@ watch(() => props.peakPrice, (newPrice) => {
 
 // 라이프사이클 훅
 onMounted(() => {
+    checkDeviceType();
     window.addEventListener('resize', handleResize);
 });
 
@@ -308,7 +379,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-.stock-chart-container {
+.stock-chart-component {
     margin: 1.5rem 0;
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.05);
@@ -321,6 +392,8 @@ onBeforeUnmount(() => {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .chart-header h3 {
@@ -342,6 +415,8 @@ onBeforeUnmount(() => {
     cursor: pointer;
     font-size: 0.85rem;
     transition: all 0.2s ease;
+    min-height: 36px;
+    /* 터치 영역 확보 */
 }
 
 .chart-type-btn:hover {
@@ -388,7 +463,7 @@ onBeforeUnmount(() => {
 }
 
 /* 다크 모드 대응 */
-:deep(.dark-mode) .stock-chart-container {
+:deep(.dark-mode) .stock-chart-component {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -409,5 +484,79 @@ onBeforeUnmount(() => {
 :deep(.dark-mode) .chart-placeholder,
 :deep(.dark-mode) .chart-error {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+    .stock-chart-component {
+        padding: 0.75rem;
+        margin: 1rem 0;
+    }
+
+    .chart-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .chart-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .chart-type-selector {
+        width: 100%;
+    }
+
+    .chart-type-btn {
+        flex: 1;
+        text-align: center;
+        padding: 0.3rem 0.4rem;
+        font-size: 0.8rem;
+    }
+
+    .chart-loading,
+    .chart-placeholder,
+    .chart-error {
+        height: 250px;
+        /* 모바일에서 로딩/오류 영역 높이 감소 */
+    }
+
+    .chart-wrapper {
+        height: 280px;
+        /* 모바일에서 차트 높이 감소 */
+    }
+
+    .chart-period-info {
+        font-size: 0.75rem;
+        margin-top: 0.4rem;
+    }
+
+    /* 모바일에서 터치 피드백 개선 */
+    .chart-type-btn:active {
+        opacity: 0.7;
+    }
+
+    /* 너무 작은 텍스트 피하기 */
+    .period-mismatch-info {
+        display: block;
+        margin-top: 0.3rem;
+        margin-left: 0;
+    }
+}
+
+/* 작은 모바일 화면 */
+@media (max-width: 480px) {
+    .stock-chart-component {
+        padding: 0.5rem;
+    }
+
+    .chart-header h3 {
+        font-size: 1rem;
+    }
+
+    .chart-wrapper {
+        height: 250px;
+        /* 더 작은 화면에서 차트 높이 추가 감소 */
+    }
 }
 </style>
