@@ -73,7 +73,7 @@ h2 {
     cursor: not-allowed;
 }
 
-.search-results {
+.stock-selector .search-results {
     max-height: 300px;
     overflow-y: auto;
     border: 1px solid var(--border-color);
@@ -85,8 +85,9 @@ h2 {
     padding: 10px 15px;
     cursor: pointer;
     border-bottom: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-gap: 10px;
     align-items: center;
 }
 
@@ -100,11 +101,17 @@ h2 {
 
 .search-result-item .stock-name {
     font-weight: 500;
+    margin-right: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .search-result-item .stock-symbol {
     opacity: 0.7;
     font-size: 0.9rem;
+    text-align: right;
+    white-space: nowrap;
 }
 
 .search-result-item .stock-market {
@@ -112,6 +119,8 @@ h2 {
     border-radius: 4px;
     font-size: 0.8rem;
     color: white;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .selected-stocks {
@@ -642,4 +651,195 @@ td {
         align-items: flex-start;
         gap: 10px;
     }
+}
+
+@media (max-width: 480px) {
+    .search-result-item {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+    }
+
+    .search-result-item .stock-name {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .search-result-item .stock-symbol {
+        grid-column: 1;
+        grid-row: 2;
+        text-align: left;
+    }
+
+    .search-result-item .stock-market {
+        grid-column: 2;
+        grid-row: span 2;
+    }
+}
+
+/* 시장 필터 영역 */
+.market-filter {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.market-filter h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.market-tip {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.market-options {
+    display: flex;
+    gap: 10px;
+}
+
+.market-options button {
+    flex: 1;
+    padding: 8px 16px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: var(--text-color);
+}
+
+.market-options button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.market-options button.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.market-options button:hover:not(.disabled) {
+    background-color: var(--hover-color);
+}
+
+/* 통화 표시 영역 */
+.currency-indicator {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--background-color);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.currency-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.currency-badge.kr {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.currency-badge.us {
+    background-color: #8b5cf6;
+    color: white;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    .market-options {
+        flex-direction: column;
+    }
+}
+
+/* 검색 결과가 없을 때 메시지 스타일 */
+.no-search-results {
+    padding: 15px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.no-search-results p {
+    color: var(--text-color);
+    opacity: 0.7;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* 선택된 종목 헤더 스타일 */
+.selected-stocks-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.stocks-count {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.reset-stocks {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.reset-stocks:hover {
+    background-color: #ffecec;
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+/* 슬라이드 애니메이션 (종목 추가/제거 시 사용) */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.selected-stock {
+    animation: slideIn 0.3s ease;
+}
+
+/* 현금 항목 스타일 */
+.cash-item {
+    background-color: var(--background-color, rgba(0, 0, 0, 0.03));
+}
+
+.cash-item .stock-name {
+    font-style: italic;
+}
+
+.cash-balance .metric-value {
+    color: var(--text-color, #333);
 }

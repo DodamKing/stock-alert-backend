@@ -92,7 +92,7 @@ router.get('/search', async (req, res, next) => {
                     let type = 'stock'
                     if (stock.market.includes('KOSPI') || stock.market.includes('KOSDAQ')) {
                         type = 'kr-stock'
-                    } else if (marketCode === 'KR' || marketCode === 'US') {
+                    } else if (marketCode === 'ETF_KR' || marketCode === 'ETF_US') {
                         type = 'etf'
                     } else if (stock.market.includes('NASDAQ') || stock.market.includes('NYSE') || stock.market.includes('AMEX')) {
                         type = 'us-stock'
@@ -117,7 +117,7 @@ router.get('/search', async (req, res, next) => {
         if (results.length > limit) {
             results = results.slice(0, parseInt(limit))
         }
-
+        
         console.log(`검색 결과: ${results.length}개 종목 찾음`)
 
         res.json({

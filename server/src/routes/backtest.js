@@ -83,7 +83,11 @@ router.post('/dca', async (req, res, next) => {
             })
         }
 
-        console.log(`적립식 투자 백테스팅 요청: symbols=${backtestParams.symbols}, start_date=${backtestParams.start_date}`)
+        // 시장 그룹 및 통화 확인 (프론트엔드에서 제공)
+        const marketGroup = backtestParams.market_group || 'kr' // 기본값은 한국
+        const currency = backtestParams.currency || 'KRW'
+
+        console.log(`적립식 투자 백테스팅 요청: symbols=${backtestParams.symbols}, start_date=${backtestParams.start_date}, market_group=${marketGroup}`)
 
         // FastAPI에 요청
         const response = await fastApiClient.post('/api/backtest/dca', backtestParams)
@@ -96,12 +100,40 @@ router.post('/dca', async (req, res, next) => {
             // 총 포트폴리오 가치 계산
             const totalValue = backtestResult.portfolio.reduce((sum, item) => sum + item.current_value, 0);
 
-            // 각 종목의 비중을 재계산
+            // 각 종목의 비중을 재계산 (현금 포함)
             backtestResult.portfolio = backtestResult.portfolio.map(item => {
                 let stockType = 'stock';
                 const symbol = item.symbol;
 
-                // 심볼 패턴으로 유형 추정...
+                // 현금 항목 특별 처리
+                if (symbol === 'CASH') {
+                    return {
+                        ...item,
+                        type: 'cash',
+                        weight: totalValue > 0 ? (item.current_value / totalValue * 100) : 0
+                    };
+                }
+
+                // 시장 그룹에 따른 종목 타입 추정
+                if (marketGroup === 'kr') {
+                    // 한국 주식/ETF 패턴
+                    if (symbol.match(/^(A)?[0-9]{6}$/)) {
+                        if (symbol.includes('ETF') || item.name?.includes('ETF')) {
+                            stockType = 'etf';
+                        } else {
+                            stockType = 'kr-stock';
+                        }
+                    }
+                } else if (marketGroup === 'us') {
+                    // 미국 주식/ETF 패턴
+                    if (symbol.match(/^[A-Z]{1,5}$/)) {
+                        if (symbol.includes('ETF') || item.name?.includes('ETF')) {
+                            stockType = 'etf';
+                        } else {
+                            stockType = 'us-stock';
+                        }
+                    }
+                }
 
                 // 비중 재계산 (현재 가치 ÷ 총 가치 × 100)
                 const weight = totalValue > 0 ? (item.current_value / totalValue * 100) : 0;
@@ -109,7 +141,8 @@ router.post('/dca', async (req, res, next) => {
                 return {
                     ...item,
                     type: stockType,
-                    weight: weight // 비중 재계산하여 덮어쓰기
+                    weight: weight, // 비중 재계산하여 덮어쓰기
+                    shares: Math.floor(item.shares) // 주식 수량 정수로 표시
                 };
             });
         }
@@ -120,9 +153,9 @@ router.post('/dca', async (req, res, next) => {
             // 투자 성과 점수 (0-100) 계산
             const performanceScore = calculatePerformanceScore(summary.cagr, summary.total_profit_pct)
 
-            // CAGR 범주화
-            let cagr_rating = 'Not rated'
-            if (summary.cagr !== undefined) {
+            // CAGR 범주화 (이미 백엔드에서 제공하는 경우 사용)
+            let cagr_rating = summary.cagr_rating || 'Not rated'
+            if (!summary.cagr_rating) {
                 if (summary.cagr < 0) cagr_rating = '손실'
                 else if (summary.cagr < 5) cagr_rating = '낮음'
                 else if (summary.cagr < 10) cagr_rating = '보통'
@@ -130,13 +163,21 @@ router.post('/dca', async (req, res, next) => {
                 else cagr_rating = '탁월함'
             }
 
-            // 요약 정보에 추가
-            backtestResult.summary.performance_score = performanceScore
-            backtestResult.summary.cagr_rating = cagr_rating
+            // 현금 잔액 확인 (백엔드에서 제공하는 경우 사용)
+            const cashBalance = summary.cash_balance || 0
 
-            // 벤치마크와의 비교 코멘트 (예시)
+            // 요약 정보에 추가
+            backtestResult.summary.performance_score = summary.performance_score || performanceScore
+            backtestResult.summary.cagr_rating = cagr_rating
+            backtestResult.summary.cash_balance = cashBalance
+
+            // 시장 그룹 및 통화 정보 추가
+            backtestResult.summary.market_group = marketGroup
+            backtestResult.summary.currency = currency
+
+            // 벤치마크와의 비교 코멘트
             backtestResult.analysis = {
-                comment: generateBacktestAnalysisComment(summary),
+                comment: generateBacktestAnalysisComment(summary, marketGroup),
                 key_metrics: [
                     {
                         name: '연평균 수익률(CAGR)',
@@ -154,6 +195,15 @@ router.post('/dca', async (req, res, next) => {
                         rating: 'N/A'
                     }
                 ]
+            }
+
+            // 현금 정보가 있으면 지표에 추가
+            if (cashBalance > 0) {
+                backtestResult.analysis.key_metrics.push({
+                    name: '남은 현금',
+                    value: formatCurrency(cashBalance, currency),
+                    rating: 'N/A'
+                });
             }
         }
 
@@ -279,6 +329,20 @@ function generateBacktestAnalysisComment(summary) {
     }
 
     return comment
+}
+
+// 숫자 포맷팅 함수
+function formatNumber(num) {
+    return new Intl.NumberFormat().format(Math.round(num));
+}
+
+// 통화 포맷팅 함수
+function formatCurrency(amount, currency) {
+    if (currency === 'USD') {
+        return '$' + new Intl.NumberFormat('en-US').format(Math.round(amount));
+    } else {
+        return new Intl.NumberFormat('ko-KR').format(Math.round(amount)) + '원';
+    }
 }
 
 module.exports = router

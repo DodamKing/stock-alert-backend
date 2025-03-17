@@ -46,16 +46,41 @@ export default {
             default: 0
         }
     },
+    data() {
+        return {
+            lastUpdated: Date.now()
+        };
+    },
     computed: {
         remainingTimeText() {
             if (!this.startTime) return "계산 중...";
 
             const elapsed = (Date.now() - this.startTime) / 1000;
-            const remaining = Math.max(0, Math.round(this.estimatedTime - elapsed));
 
-            if (remaining <= 0) return "곧 완료됩니다...";
-            if (remaining < 60) return `${remaining}초`;
-            return `약 ${Math.ceil(remaining / 60)}분`;
+            // 남은 시간을 더 정확하게 계산
+            // 1. 이미 완료된 비율 계산
+            const completedRatio = Math.max(0, Math.min((this.value - 10) / 85, 0.95));
+
+            // 2. 진행 상태가 10% 미만이면 초기 추정 사용
+            if (completedRatio <= 0) {
+                return `약 ${Math.ceil(this.estimatedTime)}초`;
+            }
+
+            // 3. 남은 비율 계산
+            const remainingRatio = 1 - completedRatio;
+
+            // 4. 실제 경과 시간 기반으로 남은 시간 추정
+            const estimatedRemaining = Math.max(0, elapsed * (remainingRatio / completedRatio));
+
+            if (estimatedRemaining <= 0) return "곧 완료됩니다...";
+            if (estimatedRemaining < 60) return `${Math.ceil(estimatedRemaining)}초`;
+            return `약 ${Math.ceil(estimatedRemaining / 60)}분`;
+        }
+    },
+    watch: {
+        // 진행률 변화에 따라 lastUpdated 갱신 (강제 렌더링 용도)
+        value() {
+            this.lastUpdated = Date.now();
         }
     }
 }

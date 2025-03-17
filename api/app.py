@@ -288,8 +288,8 @@ async def get_stock_data(
             )
 
         # 전고점 찾기
-        peak_value = df["Close"].max()
-        peak_index = df["Close"].idxmax()
+        peak_value = df["High"].max()
+        peak_index = df["High"].idxmax()
 
         # 현재 가격
         current_price = df["Close"].iloc[-1]

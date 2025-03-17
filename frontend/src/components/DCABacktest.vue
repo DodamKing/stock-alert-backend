@@ -8,11 +8,25 @@
         <div class="settings-container" v-if="!isLoading && !result">
             <div class="settings-section">
                 <h3>종목 선택</h3>
+
+                <!-- 시장 필터 추가 -->
+                <div class="market-filter">
+                    <h4>시장 선택</h4>
+                    <p class="market-tip">※ 동일 시장 내에서만 종목을 선택할 수 있습니다.</p>
+                    <div class="market-options">
+                        <button v-for="(marketGroup, group) in marketGroups" :key="group"
+                            :class="{ active: selectedMarketGroup === group, disabled: selectedStocks.length > 0 && selectedMarketGroup !== group }"
+                            @click="selectMarketGroup(group)">
+                            {{ marketGroup.name }}
+                        </button>
+                    </div>
+                </div>
+
                 <div class="stock-selector">
                     <div class="stock-input">
                         <input type="text" v-model="searchQuery" @keyup.enter="searchStocks" placeholder="종목명 또는 심볼 검색"
-                            :disabled="selectedStocks.length >= 5" />
-                        <button @click="searchStocks" :disabled="selectedStocks.length >= 5">
+                            :disabled="selectedStocks.length >= 5 || !selectedMarketGroup" />
+                        <button @click="searchStocks" :disabled="selectedStocks.length >= 5 || !selectedMarketGroup">
                             검색
                         </button>
                     </div>
@@ -25,7 +39,25 @@
                         </div>
                     </div>
 
+                    <!-- 검색 결과가 없는 경우 메시지 표시 -->
+                    <div class="no-search-results" v-if="searchQuery && hasSearched && searchResults.length === 0">
+                        <p>검색 결과가 없습니다. 다른 키워드로 검색해 보세요.</p>
+                    </div>
+
+                    <div class="currency-indicator" v-if="selectedMarketGroup">
+                        <div class="currency-badge" :class="selectedMarketGroup">
+                            {{ getCurrencySymbol() }}
+                        </div>
+                        <span>선택한 시장 통화: {{ getCurrencyName() }}</span>
+                    </div>
+
                     <div class="selected-stocks">
+                        <!-- 선택된 종목이 있는 경우에만 리셋 버튼 표시 -->
+                        <div class="selected-stocks-header" v-if="selectedStocks.length > 0">
+                            <div class="stocks-count">선택된 종목 ({{ selectedStocks.length }}/5)</div>
+                            <button class="reset-stocks" @click="resetStocks">모든 종목 초기화</button>
+                        </div>
+
                         <div v-for="stock in selectedStocks" :key="stock.symbol" class="selected-stock"
                             :class="stock.type">
                             <div class="stock-info">
@@ -65,14 +97,14 @@
                         <label>초기 투자금액</label>
                         <div class="amount-input">
                             <input type="number" v-model.number="initialAmount" min="0" step="100000" />
-                            <span>원</span>
+                            <span>{{ getCurrencySymbol() }}</span>
                         </div>
                     </div>
                     <div class="input-group">
                         <label>정기 투자금액</label>
                         <div class="amount-input">
                             <input type="number" v-model.number="investmentAmount" min="0" step="10000" />
-                            <span>원</span>
+                            <span>{{ getCurrencySymbol() }}</span>
                         </div>
                     </div>
                 </div>
@@ -137,15 +169,15 @@
 
                 <div class="summary-metrics">
                     <div class="metric">
-                        <div class="metric-value">{{ formatNumber(result.summary.total_invested) }}원</div>
+                        <div class="metric-value">{{ formatCurrency(result.summary.total_invested) }}</div>
                         <div class="metric-label">총 투자금액</div>
                     </div>
                     <div class="metric">
-                        <div class="metric-value">{{ formatNumber(result.summary.final_value) }}원</div>
+                        <div class="metric-value">{{ formatCurrency(result.summary.final_value) }}</div>
                         <div class="metric-label">최종 가치</div>
                     </div>
                     <div class="metric" :class="result.summary.total_profit >= 0 ? 'positive' : 'negative'">
-                        <div class="metric-value">{{ formatNumber(result.summary.total_profit) }}원</div>
+                        <div class="metric-value">{{ formatCurrency(result.summary.total_profit) }}</div>
                         <div class="metric-label">총 수익</div>
                     </div>
                     <div class="metric" :class="result.summary.total_profit_pct >= 0 ? 'positive' : 'negative'">
@@ -159,6 +191,10 @@
                     <div class="metric">
                         <div class="metric-value">{{ result.summary.cagr_rating }}</div>
                         <div class="metric-label">CAGR 등급</div>
+                    </div>
+                    <div class="metric cash-balance" v-if="result.summary.cash_balance > 0">
+                        <div class="metric-value">{{ formatCurrency(result.summary.cash_balance) }}</div>
+                        <div class="metric-label">남은 현금</div>
                     </div>
                 </div>
 
@@ -187,17 +223,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="item in result.portfolio" :key="item.symbol">
+                            <tr v-for="item in result.portfolio" :key="item.symbol"
+                                :class="{ 'cash-item': item.symbol === 'CASH' }">
                                 <td>
                                     <div class="stock-name">{{ item.name || item.symbol }}</div>
-                                    <div class="stock-symbol">{{ item.symbol }}</div>
+                                    <div class="stock-symbol" v-if="item.symbol !== 'CASH'">{{ item.symbol }}</div>
                                 </td>
-                                <td>{{ item.shares.toFixed(4) }}</td>
-                                <td>{{ formatNumber(item.cost_basis) }}원</td>
-                                <td>{{ formatNumber(item.current_value) }}원</td>
+                                <!-- 현금 항목은 수량 표시 안함, 주식은 정수로 표시 -->
+                                <td>{{ item.symbol === 'CASH' ? '-' : Math.floor(item.shares) }}</td>
+                                <td>{{ formatCurrency(item.cost_basis) }}</td>
+                                <td>{{ formatCurrency(item.current_value) }}</td>
                                 <td>{{ item.weight.toFixed(2) }}%</td>
                                 <td :class="item.profit_loss_pct >= 0 ? 'positive' : 'negative'">
-                                    {{ item.profit_loss_pct.toFixed(2) }}%
+                                    {{ item.symbol === 'CASH' ? '-' : item.profit_loss_pct.toFixed(2) + '%' }}
                                 </td>
                             </tr>
                         </tbody>
@@ -227,12 +265,12 @@
                             <tr v-for="(transaction, index) in displayedTransactions" :key="index">
                                 <td>{{ formatDate(transaction.date) }}</td>
                                 <td>{{ transaction.type === 'initial' ? '초기 투자' : '정기 투자' }}</td>
-                                <td>{{ formatNumber(transaction.amount) }}원</td>
+                                <td>{{ formatCurrency(transaction.amount) }}</td>
                                 <td>
                                     <div v-for="(detail, symbol) in transaction.details" :key="symbol"
                                         class="transaction-detail">
-                                        {{ getStockName(symbol) }}: {{ detail.shares.toFixed(4) }}주 ({{
-                                        formatNumber(detail.amount) }}원)
+                                        {{ getStockName(symbol) }}: {{ Math.floor(detail.shares) }}주 ({{
+                                        formatCurrency(detail.amount) }})
                                     </div>
                                 </td>
                             </tr>
@@ -242,16 +280,21 @@
             </div>
         </div>
     </div>
+
+    <ConfirmModal :show="showResetModal" title="종목 초기화" message="선택한 모든 종목을 초기화하시겠습니까? 시장 선택도 초기화됩니다."
+        @close="showResetModal = false" @confirm="confirmResetStocks" />
 </template>
 
 <script>
 import ApexCharts from 'apexcharts';
 import ProgressBar from './ProgressBar.vue';
+import ConfirmModal from './ConfirmModal.vue'
 
 export default {
     name: 'DCABacktest',
     components: {
-        ProgressBar
+        ProgressBar,
+        ConfirmModal
     },
     data() {
         const today = new Date().toISOString().split('T')[0];
@@ -261,10 +304,26 @@ export default {
 
         return {
             apiBaseUrl: import.meta.env.VITE_API_URL || '/api',
-            
+
+            // 시장 필터 관련
+            marketGroups: {
+                'kr': {
+                    name: '한국 주식/ETF',
+                    markets: ['KOSPI', 'KOSDAQ', 'ETF_KR'],
+                    currency: 'KRW'
+                },
+                'us': {
+                    name: '미국 주식/ETF',
+                    markets: ['NASDAQ', 'NYSE', 'AMEX', 'ETF_US'],
+                    currency: 'USD'
+                }
+            },
+            selectedMarketGroup: null,
+
             // 검색 관련
             searchQuery: '',
             searchResults: [],
+            hasSearched: false, 
 
             // 선택된 종목
             selectedStocks: [],
@@ -295,7 +354,11 @@ export default {
             progress: 0,
             startTime: null,
             estimatedTime: 0,
-            progressInterval: null
+            progressInterval: null,
+            initialEstimatedTime: 0,
+
+            // 모달 관련
+            showResetModal: false,
         };
     },
     computed: {
@@ -307,7 +370,8 @@ export default {
                 this.totalAllocation === 100 &&
                 this.startDate &&
                 this.endDate &&
-                new Date(this.startDate) < new Date(this.endDate);
+                new Date(this.startDate) < new Date(this.endDate) &&
+                this.selectedMarketGroup !== null;
         },
         displayedTransactions() {
             if (!this.result || !this.result.transactions) return [];
@@ -324,18 +388,63 @@ export default {
             const start = new Date(this.startDate);
             const end = new Date(this.endDate);
             return ((end - start) / (1000 * 60 * 60 * 24 * 365.25)).toFixed(1);
+        },
+        currentCurrency() {
+            return this.selectedMarketGroup ? this.marketGroups[this.selectedMarketGroup].currency : 'KRW';
         }
     },
     methods: {
+        selectMarketGroup(group) {
+            // 이미 종목이 선택되어 있으면 변경 불가
+            if (this.selectedStocks.length > 0 && this.selectedMarketGroup !== group) {
+                return;
+            }
+
+            this.selectedMarketGroup = group;
+            this.searchResults = [];
+
+            // 통화에 따라 기본 금액 조정
+            if (group === 'us') {
+                // 미국 주식 선택 시 달러 단위로 초기값 설정
+                this.initialAmount = 5000;  // $5,000
+                this.investmentAmount = 500; // $500
+            } else {
+                // 한국 주식 선택 시 원화 단위로 초기값 설정
+                this.initialAmount = 5000000; // 500만원
+                this.investmentAmount = 500000; // 50만원
+            }
+        },
+
+        getCurrencySymbol() {
+            if (!this.selectedMarketGroup) return '원';
+            return this.selectedMarketGroup === 'us' ? '$' : '원';
+        },
+
+        getCurrencyName() {
+            if (!this.selectedMarketGroup) return '원화(KRW)';
+            return this.selectedMarketGroup === 'us' ? '미국 달러(USD)' : '원화(KRW)';
+        },
+
+        formatCurrency(value) {
+            if (this.selectedMarketGroup === 'us') {
+                return '$' + new Intl.NumberFormat('en-US').format(Math.round(value));
+            } else {
+                return new Intl.NumberFormat('ko-KR').format(Math.round(value)) + '원';
+            }
+        },
+
         async searchStocks() {
-            if (!this.searchQuery.trim()) return;
+            if (!this.searchQuery.trim() || !this.selectedMarketGroup) return;
 
             try {
                 this.isLoading = true;
+                this.hasSearched = true;
 
-                // 일단 한국 시장만 먼저 하고 나중에 다시 하자자
-                // fetch API 사용
-                const response = await fetch(`${this.apiBaseUrl}/search?query=${encodeURIComponent(this.searchQuery)}&markets=ks,kq,etf&limit=10`);
+                // 선택한 시장 그룹의 마켓 목록 가져오기
+                const marketsList = this.marketGroups[this.selectedMarketGroup].markets.join(',');
+
+                // fetch API 사용 (markets 파라미터 추가)
+                const response = await fetch(`${this.apiBaseUrl}/search?query=${encodeURIComponent(this.searchQuery)}&markets=${marketsList}&limit=10`);
 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -382,6 +491,11 @@ export default {
 
             // 남은 종목들의 비중 재조정
             this.redistributeAllocations();
+
+            // 모든 종목이 제거되었다면 시장 그룹 재선택 가능하도록 설정
+            if (this.selectedStocks.length === 0) {
+                this.selectedMarketGroup = null;
+            }
         },
 
         updateAllocations(changedStock) {
@@ -425,7 +539,7 @@ export default {
                 this.startTime = Date.now();
                 this.startProgressAnimation();
 
-                // 백테스팅 파라미터 생성 (기존 코드)
+                // 백테스팅 파라미터 생성 (시장 정보 추가)
                 const params = {
                     symbols: this.selectedStocks.map(s => s.symbol),
                     allocation: this.selectedStocks.reduce((acc, stock) => {
@@ -438,10 +552,12 @@ export default {
                     investment_amount: this.investmentAmount,
                     investment_frequency: this.investmentFrequency,
                     fee_rate: this.feeRate,
-                    tax_rate: this.taxRate
+                    tax_rate: this.taxRate,
+                    market_group: this.selectedMarketGroup,
+                    currency: this.currentCurrency
                 };
 
-                // 백테스팅 API 호출 (기존 코드)
+                // 백테스팅 API 호출
                 const response = await fetch(`${this.apiBaseUrl}/backtest/dca`, {
                     method: 'POST',
                     headers: {
@@ -463,7 +579,7 @@ export default {
                     // 프로그레스 완료 처리
                     this.completeProgress();
 
-                    // 차트 렌더링 (기존 코드)
+                    // 차트 렌더링
                     this.$nextTick(() => {
                         this.renderChart();
                     });
@@ -500,6 +616,9 @@ export default {
                 x: new Date(item.date).getTime(),
                 y: Math.round(item.invested)
             }));
+
+            // 통화 기호를 가져옴
+            const currencySymbol = this.getCurrencySymbol();
 
             const options = {
                 chart: {
@@ -538,11 +657,15 @@ export default {
                 yaxis: {
                     labels: {
                         formatter: (value) => {
-                            return this.formatNumber(value) + '원';
+                            if (this.selectedMarketGroup === 'us') {
+                                return '$' + new Intl.NumberFormat('en-US').format(Math.round(value));
+                            } else {
+                                return new Intl.NumberFormat('ko-KR').format(Math.round(value)) + '원';
+                            }
                         }
                     },
                     title: {
-                        text: '금액 (원)'
+                        text: this.selectedMarketGroup === 'us' ? '금액 ($)' : '금액 (원)'
                     }
                 },
                 tooltip: {
@@ -551,7 +674,11 @@ export default {
                     },
                     y: {
                         formatter: (value) => {
-                            return this.formatNumber(value) + '원';
+                            if (this.selectedMarketGroup === 'us') {
+                                return '$' + new Intl.NumberFormat('en-US').format(Math.round(value));
+                            } else {
+                                return new Intl.NumberFormat('ko-KR').format(Math.round(value)) + '원';
+                            }
                         }
                     }
                 },
@@ -593,7 +720,9 @@ export default {
                 'NYSE': '뉴욕',
                 'AMEX': '아멕스',
                 'ETF/KR': 'ETF(KR)',
-                'ETF/US': 'ETF(US)'
+                'ETF/US': 'ETF(US)',
+                'ETF_KR': 'ETF(KR)',
+                'ETF_US': 'ETF(US)'
             };
             return marketMap[market] || market;
         },
@@ -629,6 +758,9 @@ export default {
                 clearInterval(this.progressInterval);
             }
 
+            // 최초 추정 시간 저장
+            this.initialEstimatedTime = this.estimatedTime;
+
             // 부드러운 프로그레스 애니메이션
             this.progressInterval = setInterval(() => {
                 const elapsed = (Date.now() - this.startTime) / 1000;
@@ -637,7 +769,23 @@ export default {
                 // 0-95%까지만 자동 증가 (실제 완료는 응답 후 100%로 설정)
                 if (ratio < 0.95) {
                     // 처음에는 빠르게, 나중에는 천천히 증가하는 비선형 곡선
-                    this.progress = 10 + (ratio * 85);
+                    const newProgress = 10 + (ratio * 85);
+                    this.progress = newProgress;
+
+                    // 진행 상황에 따라 예상 시간 재계산
+                    if (newProgress > 20) {
+                        // 진행률이 20%를 넘은 시점부터 남은 시간 재추정
+                        const completedRatio = (newProgress - 10) / 85; // 10~95% 범위에서의 진행률
+                        const timeSpentSoFar = elapsed;
+
+                        // 완료까지 남은 시간 추정 (현재 속도 기준)
+                        const remainingRatio = 1 - completedRatio;
+                        const estimatedRemaining = timeSpentSoFar * (remainingRatio / completedRatio);
+
+                        // 초기 추정치와 현재 추정치를 가중 평균 (진행될수록 현재 추정치에 가중치 부여)
+                        const weight = Math.min(0.7, completedRatio); // 최대 0.7까지 가중치 부여
+                        this.estimatedTime = (1 - weight) * this.initialEstimatedTime + weight * (timeSpentSoFar + estimatedRemaining);
+                    }
                 } else {
                     this.progress = 95; // 최대 95%까지만
                 }
@@ -650,6 +798,18 @@ export default {
                 this.progressInterval = null;
             }
             this.progress = 100;
+        },
+
+        resetStocks() {
+            this.showResetModal = true;
+        },
+
+        confirmResetStocks() {
+            this.selectedStocks = [];
+            this.selectedMarketGroup = null;
+            this.searchResults = [];
+            this.searchQuery = '';
+            this.hasSearched = false;
         },
     },
     beforeDestroy() {

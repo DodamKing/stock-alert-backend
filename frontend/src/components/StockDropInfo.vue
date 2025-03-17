@@ -16,7 +16,17 @@
         <div class="drop-analysis">{{ stockData.analysis }}</div>
 
         <div class="notify-container">
-            <button @click="setNotification" class="notify-btn">
+            <div class="feature-coming-soon">
+                <div class="coming-soon-icon">🔔</div>
+                <h4>알림 기능 개발 중</h4>
+                <p>이 종목의 하락률 변화를 알림으로 받는 기능이 곧 제공될 예정입니다.</p>
+            </div>
+            <!-- 비활성화된 버튼 -->
+            <button class="notify-btn disabled" disabled>
+                <span>이 종목 알림 받기</span>
+                <span class="coming-soon-badge">개발 중</span>
+            </button>
+            <!-- <button @click="setNotification" class="notify-btn">
                 <span v-if="hasNotification">알림 설정됨 ✓</span>
                 <span v-else>이 종목 알림 받기</span>
             </button>
@@ -31,7 +41,7 @@
                     <option value="30">30% 이상</option>
                 </select>
                 <button @click="saveNotification" class="save-notify-btn">저장</button>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -87,24 +97,24 @@ export default {
             if (dropPercent < 30) return 'large-drop';
             return 'severe-drop';
         },
-        setNotification() {
-            if (this.hasNotification) {
-                // 이미 설정된 알림이 있으면 제거 요청
-                this.$emit('remove-notification', this.stockData.symbol);
-            } else {
-                // 알림 설정 옵션 표시
-                this.showNotifyOptions = !this.showNotifyOptions;
-            }
-        },
-        saveNotification() {
-            // 저장 이벤트 발행
-            this.$emit('save-notification', {
-                symbol: this.stockData.symbol,
-                threshold: this.notifyThreshold
-            });
+        // setNotification() {
+        //     if (this.hasNotification) {
+        //         // 이미 설정된 알림이 있으면 제거 요청
+        //         this.$emit('remove-notification', this.stockData.symbol);
+        //     } else {
+        //         // 알림 설정 옵션 표시
+        //         this.showNotifyOptions = !this.showNotifyOptions;
+        //     }
+        // },
+        // saveNotification() {
+        //     // 저장 이벤트 발행
+        //     this.$emit('save-notification', {
+        //         symbol: this.stockData.symbol,
+        //         threshold: this.notifyThreshold
+        //     });
 
-            this.showNotifyOptions = false;
-        },
+        //     this.showNotifyOptions = false;
+        // },
         checkDeviceType() {
             this.isMobile = window.innerWidth <= 768;
         }
@@ -453,6 +463,92 @@ export default {
     .notify-btn:hover,
     .save-notify-btn:hover {
         transform: none;
+    }
+}
+
+/* 준비 중 기능 알림 */
+.feature-coming-soon {
+    background-color: var(--background-color);
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.coming-soon-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    animation: pulse 2s infinite;
+}
+
+.feature-coming-soon h4 {
+    margin: 5px 0;
+    color: var(--primary-color);
+}
+
+.feature-coming-soon p {
+    margin: 10px 0 5px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* 비활성화된 버튼 */
+.notify-btn.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    position: relative;
+    overflow: hidden;
+}
+
+.notify-btn.disabled:hover {
+    transform: none;
+    background-color: #ccc;
+}
+
+.coming-soon-badge {
+    position: absolute;
+    top: -8px;
+    right: -25px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 20px;
+    transform: rotate(45deg);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+    .feature-coming-soon {
+        padding: 12px;
+    }
+
+    .coming-soon-icon {
+        font-size: 1.5rem;
+    }
+
+    .feature-coming-soon h4 {
+        font-size: 1rem;
+    }
+
+    .feature-coming-soon p {
+        font-size: 0.8rem;
     }
 }
 </style>

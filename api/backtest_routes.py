@@ -7,6 +7,7 @@ import FinanceDataReader as fdr
 from datetime import datetime, timedelta
 import logging
 import re
+import math
 
 # 로깅 설정
 logger = logging.getLogger("stock-api.backtest")
@@ -247,13 +248,13 @@ async def backtest_dca(request: BacktestDCARequest):
     - **allocation**: 각 종목별 투자 비중 (%)
     - **start_date**: 시작일 (YYYY-MM-DD)
     - **end_date**: 종료일 (YYYY-MM-DD), 기본값은 오늘
-    - **initial_amount**: 초기 투자 금액 (원)
-    - **investment_amount**: 정기 투자 금액 (원)
+    - **initial_amount**: 초기 투자 금액
+    - **investment_amount**: 정기 투자 금액
     - **investment_frequency**: 투자 주기 (monthly, quarterly, yearly)
     - **fee_rate**: 매매 수수료율 (%)
     - **tax_rate**: 양도소득세율 (%)
-
-    백테스팅 결과를 반환합니다.
+    - **market_group**: 시장 그룹 (kr, us)
+    - **currency**: 통화 (KRW, USD)
     """
     try:
         logger.info(
@@ -316,6 +317,7 @@ async def backtest_dca(request: BacktestDCARequest):
         portfolio_value_history = []
         total_invested = 0.0
         cash = request.initial_amount if request.initial_amount > 0 else 0
+        fractional_cash = 0.0  # 매수 후 남은 현금을 추적
 
         # 초기 투자 처리
         if request.initial_amount > 0:
@@ -343,20 +345,29 @@ async def backtest_dca(request: BacktestDCARequest):
                     .iloc[0]["Close"]
                 )
                 fee = invest_amount * (request.fee_rate / 100.0)
-                shares = (invest_amount - fee) / price
+
+                # 정수 단위로 주식 매수
+                shares = math.floor((invest_amount - fee) / price)
+
+                # 실제 사용된 금액 계산
+                used_amount = shares * price + fee
+
+                # 남은 금액은 현금으로 보관
+                leftover = invest_amount - used_amount
+                fractional_cash += leftover
 
                 # 포트폴리오 업데이트
                 if symbol not in portfolio:
                     portfolio[symbol] = {"shares": 0, "cost_basis": 0}
 
                 portfolio[symbol]["shares"] += shares
-                portfolio[symbol]["cost_basis"] += invest_amount
+                portfolio[symbol]["cost_basis"] += used_amount
 
                 # 거래 상세정보 기록
                 initial_transaction["details"][symbol] = {
                     "price": price,
                     "shares": shares,
-                    "amount": invest_amount,
+                    "amount": used_amount,
                     "fee": fee,
                 }
 
@@ -372,6 +383,10 @@ async def backtest_dca(request: BacktestDCARequest):
                 "amount": request.investment_amount,
                 "details": {},
             }
+
+            # 남은 현금도 이번 투자에 추가
+            investment_with_cash = request.investment_amount + fractional_cash
+            fractional_cash = 0.0  # 현금 사용 후 초기화
 
             # 각 종목별 투자
             for symbol in request.symbols:
@@ -391,23 +406,32 @@ async def backtest_dca(request: BacktestDCARequest):
                 if allocation_pct <= 0:
                     continue
 
-                invest_amount = request.investment_amount * allocation_pct
+                invest_amount = investment_with_cash * allocation_pct
                 price = price_data[symbol].loc[trade_date]["Close"]
                 fee = invest_amount * (request.fee_rate / 100.0)
-                shares = (invest_amount - fee) / price
+
+                # 정수 단위로 주식 매수
+                shares = math.floor((invest_amount - fee) / price)
+
+                # 실제 사용된 금액 계산
+                used_amount = shares * price + fee
+
+                # 남은 금액은 현금으로 보관
+                leftover = invest_amount - used_amount
+                fractional_cash += leftover
 
                 # 포트폴리오 업데이트
                 if symbol not in portfolio:
                     portfolio[symbol] = {"shares": 0, "cost_basis": 0}
 
                 portfolio[symbol]["shares"] += shares
-                portfolio[symbol]["cost_basis"] += invest_amount
+                portfolio[symbol]["cost_basis"] += used_amount
 
                 # 거래 상세정보 기록
                 transaction["details"][symbol] = {
                     "price": price,
                     "shares": shares,
-                    "amount": invest_amount,
+                    "amount": used_amount,
                     "fee": fee,
                 }
 
@@ -415,7 +439,7 @@ async def backtest_dca(request: BacktestDCARequest):
             total_invested += request.investment_amount
 
             # 이 날짜의 포트폴리오 가치 계산
-            portfolio_value = 0
+            portfolio_value = fractional_cash  # 현금 포함
             for symbol, holdings in portfolio.items():
                 if symbol not in price_data:
                     continue
@@ -441,9 +465,9 @@ async def backtest_dca(request: BacktestDCARequest):
                 }
             )
 
-        # 최종 포트폴리오 가치 계산
+        # 최종 포트폴리오 가치 계산 (현금 포함)
         final_portfolio = []
-        final_value = 0
+        final_value = fractional_cash  # 남은 현금도 최종 가치에 포함
 
         for symbol, holdings in portfolio.items():
             if symbol not in price_data:
@@ -505,7 +529,7 @@ async def backtest_dca(request: BacktestDCARequest):
                 {
                     "symbol": symbol,
                     "name": stock_name,
-                    "shares": holdings["shares"],
+                    "shares": holdings["shares"],  # 정수 단위
                     "cost_basis": holdings["cost_basis"],
                     "current_price": last_price,
                     "current_value": value,
@@ -516,6 +540,24 @@ async def backtest_dca(request: BacktestDCARequest):
                         if holdings["cost_basis"] > 0
                         else 0
                     ),
+                }
+            )
+
+        # 현금이 있는 경우 포트폴리오에 추가
+        if fractional_cash > 0:
+            final_portfolio.append(
+                {
+                    "symbol": "CASH",
+                    "name": "현금",
+                    "shares": 1,
+                    "cost_basis": fractional_cash,
+                    "current_price": fractional_cash,
+                    "current_value": fractional_cash,
+                    "weight": (
+                        fractional_cash / final_value * 100 if final_value > 0 else 0
+                    ),
+                    "profit_loss": 0,
+                    "profit_loss_pct": 0,
                 }
             )
 
@@ -538,6 +580,26 @@ async def backtest_dca(request: BacktestDCARequest):
             else 0
         )
 
+        # CAGR 등급 부여
+        cagr_rating = "F"
+        if cagr >= 20:
+            cagr_rating = "A+"
+        elif cagr >= 15:
+            cagr_rating = "A"
+        elif cagr >= 10:
+            cagr_rating = "B+"
+        elif cagr >= 7:
+            cagr_rating = "B"
+        elif cagr >= 5:
+            cagr_rating = "C+"
+        elif cagr >= 3:
+            cagr_rating = "C"
+        elif cagr >= 0:
+            cagr_rating = "D"
+
+        # 성과 점수 계산 (0-100)
+        performance_score = min(max(int(cagr * 5), 0), 100)
+
         # 결과 반환
         result = convert_numpy_types(
             {
@@ -554,7 +616,10 @@ async def backtest_dca(request: BacktestDCARequest):
                     "total_profit": total_profit,
                     "total_profit_pct": total_profit_pct,
                     "cagr": cagr,
+                    "cagr_rating": cagr_rating,
+                    "performance_score": performance_score,
                     "transactions_count": len(transactions),
+                    "cash_balance": fractional_cash,
                 },
                 "portfolio": sorted(
                     final_portfolio, key=lambda x: x["current_value"], reverse=True
