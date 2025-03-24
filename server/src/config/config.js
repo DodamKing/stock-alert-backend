@@ -36,7 +36,8 @@ const config = {
                 "https://*.googleadservices.com",
                 "https://*.google-analytics.com",
                 "https://adservice.google.com",
-                "https://*.adtrafficquality.google"
+                "https://*.adtrafficquality.google",
+                "https://fundingchoicesmessages.google.com" 
             ],
             "frame-src": [
                 "'self'",
@@ -44,7 +45,8 @@ const config = {
                 "https://*.googlesyndication.com",
                 "https://tpc.googlesyndication.com",
                 "https://*.adtrafficquality.google",
-                "https://www.google.com"
+                "https://www.google.com",
+                "https://fundingchoicesmessages.google.com"
             ],
             "img-src": [
                 "'self'",
