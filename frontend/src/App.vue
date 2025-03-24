@@ -15,12 +15,18 @@
     </nav>
 
     <router-view />
+
+    <Adsense />
   </div>
 </template>
 
 <script>
+import AdSense from './components/AdSense.vue';
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    AdSense
+  }
 }
 </script>
 

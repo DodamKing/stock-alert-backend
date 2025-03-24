@@ -10,15 +10,7 @@ const backtestRoutes = require('./routes/backtest')
 const app = express()
 const PORT = config.port
 
-app.use(helmet({
-    contentSecurityPolicy: {
-        directives: {
-            ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-            "script-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-            "img-src": ["'self'", "data:"]
-        }
-    }
-}))
+app.use(helmet({ contentSecurityPolicy: config.contentSecurityPolicy }))
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
