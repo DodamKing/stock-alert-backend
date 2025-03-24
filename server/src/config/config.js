@@ -64,7 +64,8 @@ const config = {
                 "https://*.googlesyndication.com",
                 "https://*.g.doubleclick.net",
                 "https://*.adtrafficquality.google",
-                "https://*.google-analytics.com"
+                "https://*.google-analytics.com",
+                "https://fundingchoicesmessages.google.com"
             ],
             "style-src": [
                 "'self'",
