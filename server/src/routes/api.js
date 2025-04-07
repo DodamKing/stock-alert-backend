@@ -215,7 +215,6 @@ router.get('/chart-data', async (req, res, next) => {
         if (market) url += `&market=${encodeURIComponent(market)}`
         if (days) url += `&days=${encodeURIComponent(days)}`
 
-        console.log(`차트 데이터 FastAPI 요청 URL: ${url}`)
         const response = await fastApiClient.get(url)
         const stockData = response.data
 

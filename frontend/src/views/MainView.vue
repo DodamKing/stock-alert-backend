@@ -84,7 +84,13 @@
                 </div>
 
                 <div class="stock-header">
-                    <h2>{{ stockData.name }}</h2>
+                    <div class="stock-title-area">
+                        <h2>{{ stockData.name }}</h2>
+                        <button class="refresh-button ripple" @click="refreshStockData" :disabled="loading">
+                            <span class="refresh-icon" :class="{ 'refreshing': loading }">↻</span>
+                            <span class="refresh-text">{{ loading ? '새로고침 중' : '새로고침' }}</span>
+                        </button>
+                    </div>
                     <div class="stock-meta">
                         <span class="stock-symbol">{{ stockData.symbol }}</span>
                         <span class="stock-market" :class="stockData.type">{{ getMarketDisplayName(stockData.market)
@@ -518,7 +524,21 @@ export default {
             else if (!wasMobile && this.isMobile) {
                 this.isFilterVisible = false;
             }
-        }
+        },
+
+        // 새로고침 메소드 추가
+        async refreshStockData() {
+            if (this.loading) return;
+
+            // 알림 메시지 표시
+            this.showNotification('데이터를 새로고침합니다...', 'info', 1000);
+
+            // 현재 선택된 심볼과 마켓으로 데이터 다시 가져오기
+            if (this.currentSymbol && this.currentMarket) {
+                await this.getStockData(this.currentSymbol, this.currentMarket);
+                this.showNotification('데이터가 업데이트되었습니다', 'success');
+            }
+        },
     },
 
     beforeUnmount() {
