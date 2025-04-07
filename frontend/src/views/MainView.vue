@@ -100,12 +100,12 @@
 
                 <div class="price-container">
                     <div class="current-price">
-                        <div class="label">현재가</div>
-                        <div class="value">{{ formatPrice(stockData.currentPrice) }}</div>
+                        <div class="label">최근 종가</div>
+                        <div class="value">{{ formatPrice(stockData.currentPrice, stockData.symbol) }}</div>
                     </div>
                     <div class="peak-price">
                         <div class="label">전고점 ({{ formatDate(stockData.peakDate) }})</div>
-                        <div class="value">{{ formatPrice(stockData.peakPrice) }}</div>
+                        <div class="value">{{ formatPrice(stockData.peakPrice, stockData.symbol) }}</div>
                     </div>
                 </div>
 
@@ -367,10 +367,31 @@ export default {
             this.stockData = null;
         },
 
-        formatPrice(price) {
-            return new Intl.NumberFormat('ko-KR', {
-                maximumFractionDigits: 0
-            }).format(price);
+        formatPrice(price, symbol) {
+            // symbol 인자가 없을 경우 현재 선택된 종목의 symbol 사용
+            const stockSymbol = symbol || (this.stockData ? this.stockData.symbol : null);
+
+            // 심볼 패턴으로 한국 주식 vs 미국 주식 확인
+            // 한국 주식은 보통 숫자 6자리 (예: 005930)
+            // 미국 주식은 보통 알파벳 1-5자 (예: AAPL, MSFT)
+            const isUSStock = stockSymbol && /^[A-Z]{1,5}(\.[A-Z]{1,2})?$/.test(stockSymbol);
+
+            if (isUSStock) {
+                // 미국 주식은 달러로 표시하고 소수점 2자리까지 표시
+                return new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }).format(price);
+            } else {
+                // 한국 주식은 원화로 표시하고 소수점 없이 표시
+                return new Intl.NumberFormat('ko-KR', {
+                    style: 'currency',
+                    currency: 'KRW',
+                    maximumFractionDigits: 0
+                }).format(price);
+            }
         },
 
         formatDate(dateStr) {

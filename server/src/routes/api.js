@@ -43,8 +43,6 @@ router.get('/search', async (req, res, next) => {
             })
         }
 
-        console.log(`검색 요청: query=${query}, markets=${markets}, limit=${limit}`)
-
         // 검색할 시장 목록 설정
         let marketsToSearch = MARKET_CODES
         if (markets) {
@@ -118,8 +116,6 @@ router.get('/search', async (req, res, next) => {
             results = results.slice(0, parseInt(limit))
         }
         
-        console.log(`검색 결과: ${results.length}개 종목 찾음`)
-
         res.json({
             status: 'success',
             data: results,
@@ -149,7 +145,6 @@ router.get('/peak-drop', async (req, res, next) => {
         if (market) url += `&market=${encodeURIComponent(market)}`
         if (days) url += `&days=${encodeURIComponent(days)}`
         
-        console.log(`FastAPI 요청 URL: ${url}`)
         const response = await fastApiClient.get(url)
         const stockData = response.data
 
